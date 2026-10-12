@@ -1,0 +1,2 @@
+<?php
+require_once __DIR__ . '/../../../app/bootstrap.php'; Auth::requireRole(['super_admin','owner']); $id=(int)($_GET['id']??0); try{$db=Database::connect();$stmt=$db->prepare('DELETE FROM suppliers WHERE id=?');$stmt->execute([$id]);flash('success','Supplier berhasil dihapus.');}catch(Throwable $e){flash('error','Supplier masih dipakai produk. Nonaktifkan saja.');} legacy_redirect('admin/suppliers/index.php');

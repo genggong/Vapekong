@@ -1,0 +1,4 @@
+Vapekong POS CI4 v17.0
+Build date: 2026-10-10
+CodeIgniter: 4.7.4
+Migration mode: staged CI4 front-controller + optimized legacy modules

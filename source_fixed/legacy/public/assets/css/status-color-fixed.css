@@ -1,0 +1,116 @@
+/* =========================================================
+   Exact Status Color Fix
+   Sukses hijau, Pending kuning, Gagal merah.
+   Tampilan saja.
+   ========================================================= */
+
+.kp-status-success,
+.status-success,
+.status-sukses,
+.status-paid,
+.status-lunas,
+.status-completed,
+.status-complete,
+.status-selesai,
+.status-active,
+.status-aktif,
+.status-approved,
+.status-open,
+.badge-success,
+.badge-paid,
+.text-bg-success,
+.bg-success,
+.debt-status.paid,
+.sr-status.completed,
+.bundle-status.active,
+.payment-status.paid,
+.transaction-status.paid,
+.opname-status.completed {
+    --status-bg: #dcfce7 !important;
+    --status-color: #166534 !important;
+    --status-border: #86efac !important;
+    background: #dcfce7 !important;
+    color: #166534 !important;
+    border-color: #86efac !important;
+}
+
+.kp-status-pending,
+.status-pending,
+.status-menunggu,
+.status-process,
+.status-processing,
+.status-proses,
+.status-draft,
+.status-partial,
+.status-sebagian,
+.status-unpaid,
+.status-belum,
+.status-waiting,
+.badge-warning,
+.badge-pending,
+.text-bg-warning,
+.bg-warning,
+.debt-status.partial,
+.debt-status.unpaid,
+.payment-status.pending,
+.transaction-status.pending,
+.opname-status.draft {
+    --status-bg: #fef3c7 !important;
+    --status-color: #92400e !important;
+    --status-border: #fcd34d !important;
+    background: #fef3c7 !important;
+    color: #92400e !important;
+    border-color: #fcd34d !important;
+}
+
+.kp-status-failed,
+.status-failed,
+.status-fail,
+.status-gagal,
+.status-error,
+.status-cancel,
+.status-cancelled,
+.status-canceled,
+.status-batal,
+.status-expired,
+.status-kadaluarsa,
+.status-overdue,
+.status-jatuh-tempo,
+.status-closed,
+.status-inactive,
+.status-nonaktif,
+.badge-danger,
+.badge-error,
+.badge-failed,
+.text-bg-danger,
+.bg-danger,
+.debt-status.overdue,
+.sr-status.failed,
+.sr-status.cancelled,
+.bundle-status.inactive,
+.payment-status.failed,
+.transaction-status.failed,
+.opname-status.cancelled {
+    --status-bg: #fee2e2 !important;
+    --status-color: #991b1b !important;
+    --status-border: #fecaca !important;
+    background: #fee2e2 !important;
+    color: #991b1b !important;
+    border-color: #fecaca !important;
+}
+
+/* Pastikan dot status ikut warna text */
+.kp-status-success::before,
+.kp-status-pending::before,
+.kp-status-failed::before {
+    background: currentColor !important;
+}
+
+/* Pending saja yang pulse, sukses/gagal shimmer halus saja */
+.kp-status-pending {
+    animation: kpStatusPulse 2.2s ease-in-out infinite;
+}
+.kp-status-success,
+.kp-status-failed {
+    animation: none !important;
+}

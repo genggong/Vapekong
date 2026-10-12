@@ -1,0 +1,77 @@
+/* SweetAlert theme aplikasi merah-putih */
+.swal2-popup.kasirpro-swal-popup {
+    border-radius: 26px !important;
+    padding: 1.4rem 1.3rem !important;
+    border: 1px solid #fee2e2 !important;
+    box-shadow: 0 24px 70px rgba(127, 29, 29, .18) !important;
+    font-family: inherit !important;
+}
+.swal2-popup.kasirpro-swal-popup .swal2-title {
+    color: #7f1d1d !important;
+    font-size: 1.15rem !important;
+    font-weight: 900 !important;
+}
+.swal2-popup.kasirpro-swal-popup .swal2-html-container {
+    color: #475569 !important;
+    font-size: .95rem !important;
+}
+.swal2-popup.kasirpro-swal-popup .swal2-confirm {
+    border-radius: 999px !important;
+    padding: .72rem 1.35rem !important;
+    background: linear-gradient(135deg, #ef4444, #991b1b) !important;
+    box-shadow: 0 12px 28px rgba(153, 27, 27, .22) !important;
+    font-weight: 900 !important;
+}
+.swal2-popup.kasirpro-swal-popup .swal2-cancel {
+    border-radius: 999px !important;
+    padding: .72rem 1.35rem !important;
+    background: #f1f5f9 !important;
+    color: #475569 !important;
+    font-weight: 900 !important;
+}
+.swal2-popup.kasirpro-swal-popup .swal2-icon.swal2-success {
+    border-color: #22c55e !important;
+    color: #22c55e !important;
+}
+.swal2-popup.kasirpro-swal-popup .swal2-icon.swal2-error {
+    border-color: #ef4444 !important;
+    color: #ef4444 !important;
+}
+.swal2-popup.kasirpro-swal-popup .swal2-icon.swal2-warning {
+    border-color: #f59e0b !important;
+    color: #f59e0b !important;
+}
+.swal2-popup.kasirpro-swal-popup .swal2-icon.swal2-info {
+    border-color: #991b1b !important;
+    color: #991b1b !important;
+}
+.swal2-container.swal2-backdrop-show {
+    background: rgba(15, 23, 42, .42) !important;
+}
+
+
+/* Toast SweetAlert tetap ringan, tidak seperti modal */
+.swal2-popup.kasirpro-swal-toast {
+    width: auto !important;
+    min-width: 260px !important;
+    max-width: calc(100vw - 28px) !important;
+    border-radius: 18px !important;
+    padding: .9rem 1rem !important;
+    border: 1px solid #fee2e2 !important;
+    box-shadow: 0 16px 45px rgba(127, 29, 29, .16) !important;
+    font-family: inherit !important;
+}
+.swal2-popup.kasirpro-swal-toast .swal2-title {
+    color: #7f1d1d !important;
+    font-size: .95rem !important;
+    font-weight: 900 !important;
+    margin: 0 !important;
+}
+.swal2-popup.kasirpro-swal-toast .swal2-html-container {
+    color: #475569 !important;
+    font-size: .86rem !important;
+    margin: .25rem 0 0 !important;
+}
+.swal2-popup.kasirpro-swal-toast .swal2-icon {
+    margin: 0 .65rem 0 0 !important;
+}

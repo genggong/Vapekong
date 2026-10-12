@@ -1,0 +1,35 @@
+/*
+PATCH TAMBAHAN POS.JS UNTUK PROMO
+
+Tempel logic ini di fungsi applyPromo(code), sebelum fetch.
+Pastikan dropdown promo otomatis punya name/id salah satu:
+- #autoPromoSelect
+- [name="promo_id"]
+- [data-promo-select]
+*/
+
+function getSelectedPromoId() {
+    var select = document.querySelector('#autoPromoSelect') ||
+        document.querySelector('[name="promo_id"]') ||
+        document.querySelector('[data-promo-select]');
+
+    if (!select) return '';
+    return select.value || '';
+}
+
+/*
+Di dalam function applyPromo(code), ubah bagian FormData menjadi begini:
+*/
+
+const selectedPromoId = getSelectedPromoId();
+
+const form = new FormData();
+form.append('subtotal', cartSubtotal());
+form.append('code', code || '');
+form.append('promo_id', selectedPromoId || '');
+form.append('cart', JSON.stringify(cart));
+
+/*
+Jadi promo otomatis bisa dipilih tanpa scan barcode.
+Kalau scan barcode/manual input, code tetap dipakai.
+*/

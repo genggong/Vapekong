@@ -1,0 +1,146 @@
+/* =========================================================
+   PROMO / VOUCHER PREMIUM CSS
+   ========================================================= */
+.promos-wrap { padding-bottom: 135px; }
+.promos-panel,.promos-form-card{background:#fff;border:1px solid rgba(220,38,38,.12);border-radius:28px;padding:22px;box-shadow:0 20px 60px rgba(127,29,29,.10);overflow:hidden;margin-top:18px}
+.promos-panel-head{display:flex;align-items:flex-start;justify-content:space-between;gap:14px;margin-bottom:18px}.promos-panel-head h3{margin:0;color:#7f1d1d;font-weight:950;font-size:22px;line-height:1.2}.promos-panel-head p{margin:6px 0 0;color:#64748b;font-weight:750;line-height:1.45}
+.promos-btn{min-height:50px;border-radius:18px;padding:12px 18px;border:0;display:inline-flex;align-items:center;justify-content:center;gap:8px;font-weight:950;text-decoration:none;white-space:nowrap}.promos-btn.primary{background:linear-gradient(135deg,#ef4444,#991b1b);color:#fff;box-shadow:0 16px 34px rgba(220,38,38,.22)}.promos-btn.soft{background:#fff5f5;color:#7f1d1d;border:1px solid #fecaca}.promos-btn.danger{background:#fee2e2;color:#b91c1c;border:1px solid #fecaca}
+.promos-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:15px;margin:18px 0}.promos-card{background:#fff;border:1px solid rgba(220,38,38,.11);border-radius:24px;padding:18px;box-shadow:0 16px 45px rgba(127,29,29,.08);position:relative;overflow:hidden}.promos-card::after{content:"";position:absolute;right:-34px;bottom:-40px;width:115px;height:115px;border-radius:999px;background:rgba(220,38,38,.055)}.promos-card .icon{width:48px;height:48px;border-radius:17px;display:grid;place-items:center;background:#fee2e2;color:#991b1b;font-size:22px;margin-bottom:12px;position:relative;z-index:1}.promos-card span{display:block;color:#64748b;font-size:12px;text-transform:uppercase;letter-spacing:.04em;font-weight:950;position:relative;z-index:1}.promos-card h3{color:#0f172a;font-weight:950;font-size:24px;margin:8px 0 2px;position:relative;z-index:1}.promos-card p{color:#64748b;margin:0;font-size:12px;font-weight:750;position:relative;z-index:1}
+.promos-table-wrap{width:100%;overflow-x:auto;-webkit-overflow-scrolling:touch;border-radius:22px;border:1px solid #fee2e2;background:#fff}.promos-table{width:100%;min-width:1180px;border-collapse:separate;border-spacing:0;margin:0}.promos-table th{background:linear-gradient(135deg,#991b1b,#ef4444);color:#fff;font-size:12px;letter-spacing:.05em;text-transform:uppercase;padding:15px 14px;white-space:nowrap}.promos-table td{padding:15px 14px;border-bottom:1px solid #f1f5f9;color:#0f172a;vertical-align:middle}.promos-table tr:last-child td{border-bottom:0}
+.promo-main{display:flex;align-items:center;gap:12px}.promo-icon{width:46px;height:46px;border-radius:16px;display:grid;place-items:center;background:linear-gradient(135deg,#ef4444,#991b1b);color:#fff;font-size:20px;flex:0 0 auto}.promo-main b{display:block;font-weight:950;color:#0f172a;line-height:1.25}.promo-main small{color:#64748b;font-weight:750}.promo-badge{display:inline-flex;align-items:center;justify-content:center;gap:6px;padding:7px 11px;border-radius:999px;font-size:12px;font-weight:950;white-space:nowrap}.promo-badge.green{background:#dcfce7;color:#15803d}.promo-badge.red{background:#fee2e2;color:#b91c1c}.promo-badge.blue{background:#e0f2fe;color:#0369a1}.promo-badge.orange{background:#ffedd5;color:#c2410c}.promo-badge.gray{background:#f1f5f9;color:#475569}.promo-actions{display:inline-flex;align-items:center;gap:7px;white-space:nowrap}.promo-icon-btn{width:38px;height:38px;border-radius:14px;display:inline-grid;place-items:center;padding:0;border:0;background:#fff5f5;color:#991b1b;text-decoration:none;box-shadow:0 10px 24px rgba(127,29,29,.08)}.promo-icon-btn.edit{background:#fff7ed;color:#ea580c}.promo-icon-btn.delete{background:#fee2e2;color:#dc2626}
+.promos-form-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:18px}.promo-field.full{grid-column:1/-1}.promo-field label{display:flex;align-items:center;gap:8px;color:#7f1d1d;font-size:14px;font-weight:950;line-height:1.35;margin:0 0 8px}.promo-field label::before{content:"";width:10px;height:10px;min-width:10px;border-radius:999px;background:#ef4444;box-shadow:0 0 0 6px rgba(239,68,68,.10)}.promo-field input,.promo-field select,.promo-field textarea{width:100%;min-height:56px;border:1px solid #fecaca;border-radius:19px;padding:14px 16px;background:#fff;color:#0f172a;font-size:15px;font-weight:850;line-height:1.35;outline:none;box-shadow:0 12px 34px rgba(127,29,29,.045)}.promo-field textarea{min-height:110px;resize:vertical}.promo-field input:focus,.promo-field select:focus,.promo-field textarea:focus{border-color:#ef4444;box-shadow:0 0 0 5px rgba(239,68,68,.10),0 14px 38px rgba(127,29,29,.06)}
+.promo-products-box{grid-column:1/-1;border:1px solid #fee2e2;background:#fff7f7;border-radius:24px;padding:16px}.promo-products-head{display:flex;align-items:flex-start;justify-content:space-between;gap:12px;margin-bottom:12px}.promo-products-head h4{margin:0;color:#7f1d1d;font-weight:950;font-size:17px}.promo-products-head p{margin:4px 0 0;color:#64748b;font-weight:750;font-size:13px;line-height:1.45}.promo-product-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px;max-height:360px;overflow:auto;padding:4px}.promo-product-check{display:flex;align-items:center;gap:10px;background:#fff;border:1px solid #fee2e2;border-radius:18px;padding:11px 12px;cursor:pointer}.promo-product-check input{width:20px;height:20px;accent-color:#dc2626;flex:0 0 auto}.promo-product-check b{display:block;color:#0f172a;font-size:13px;font-weight:950;line-height:1.25}.promo-product-check small{display:block;color:#64748b;font-size:11px;font-weight:700;margin-top:2px;line-height:1.25}.promos-form-actions{margin-top:22px;padding:12px;border-radius:24px;background:#fff;border:1px solid rgba(220,38,38,.12);box-shadow:0 18px 45px rgba(127,29,29,.08);display:flex;align-items:center;justify-content:flex-end;gap:12px}
+@media(max-width:991px){.promos-grid{grid-template-columns:repeat(2,1fr)}.promos-form-grid{grid-template-columns:1fr}.promo-product-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}@media(max-width:768px){.promos-wrap{padding-bottom:150px}.promos-panel,.promos-form-card{border-radius:24px;padding:16px}.promos-panel-head{display:grid;grid-template-columns:1fr}.promos-grid{grid-template-columns:1fr;gap:13px}.promos-table{min-width:1120px}.promos-table th,.promos-table td{padding:12px 11px;font-size:12px}.promo-product-grid{grid-template-columns:1fr;max-height:420px}.promos-form-actions{display:grid;grid-template-columns:1fr 1fr;gap:10px}.promos-form-actions .promos-btn{width:100%}}@media(max-width:390px){.promos-form-actions{grid-template-columns:1fr}}
+
+
+/* =========================================================
+   PROMO AUTO BARCODE PREVIEW
+   Kode voucher otomatis menjadi barcode promo.
+   ========================================================= */
+
+.promo-code-row {
+    display: grid !important;
+    grid-template-columns: minmax(0, 1fr) 56px !important;
+    gap: 10px !important;
+    align-items: center !important;
+}
+
+.promo-code-row input {
+    width: 100% !important;
+}
+
+.promo-mini-btn {
+    width: 56px !important;
+    height: 56px !important;
+    border: 0 !important;
+    border-radius: 19px !important;
+    display: inline-grid !important;
+    place-items: center !important;
+    background: linear-gradient(135deg, #ef4444, #991b1b) !important;
+    color: #fff !important;
+    box-shadow: 0 14px 30px rgba(220, 38, 38, .22) !important;
+    font-size: 20px !important;
+}
+
+.promo-field-help {
+    display: block !important;
+    margin-top: 7px !important;
+    color: #64748b !important;
+    font-size: 12px !important;
+    font-weight: 750 !important;
+    line-height: 1.4 !important;
+}
+
+.promo-barcode-preview.full {
+    grid-column: 1 / -1 !important;
+}
+
+.promo-barcode-card {
+    width: 100% !important;
+    border: 1px solid #fecaca !important;
+    border-radius: 24px !important;
+    padding: 16px !important;
+    background:
+        radial-gradient(circle at top left, rgba(239, 68, 68, .10), transparent 34%),
+        linear-gradient(135deg, #fff7f7, #ffffff) !important;
+    box-shadow: 0 14px 38px rgba(127, 29, 29, .07) !important;
+    display: grid !important;
+    grid-template-columns: minmax(0, 1fr) auto !important;
+    gap: 16px !important;
+    align-items: center !important;
+}
+
+.promo-barcode-card span {
+    display: block !important;
+    color: #7f1d1d !important;
+    font-weight: 950 !important;
+    font-size: 15px !important;
+    margin-bottom: 4px !important;
+}
+
+.promo-barcode-card p {
+    margin: 0 !important;
+    color: #64748b !important;
+    font-size: 13px !important;
+    font-weight: 750 !important;
+    line-height: 1.45 !important;
+}
+
+.promo-barcode-box {
+    min-width: 310px !important;
+    min-height: 112px !important;
+    padding: 10px !important;
+    border-radius: 18px !important;
+    background: #fff !important;
+    border: 1px dashed #fecaca !important;
+    display: grid !important;
+    place-items: center !important;
+    overflow-x: auto !important;
+}
+
+.promo-barcode-box svg {
+    max-width: 100% !important;
+    height: auto !important;
+}
+
+#promoBarcodeInput[readonly] {
+    background: #fff7f7 !important;
+    color: #7f1d1d !important;
+    cursor: not-allowed !important;
+}
+
+@media (max-width: 768px) {
+    .promo-barcode-card {
+        grid-template-columns: 1fr !important;
+        gap: 12px !important;
+        padding: 14px !important;
+        border-radius: 21px !important;
+    }
+
+    .promo-barcode-box {
+        width: 100% !important;
+        min-width: 0 !important;
+        min-height: 104px !important;
+        justify-content: start !important;
+    }
+
+    .promo-code-row {
+        grid-template-columns: minmax(0, 1fr) 52px !important;
+    }
+
+    .promo-mini-btn {
+        width: 52px !important;
+        height: 52px !important;
+        border-radius: 18px !important;
+    }
+}
+/* Tombol barcode promo */
+.promo-icon-btn.barcode {
+    background: #eef2ff !important;
+    color: #4f46e5 !important;
+}
+
+.promo-icon-btn.barcode:hover {
+    background: #4f46e5 !important;
+    color: #fff !important;
+}

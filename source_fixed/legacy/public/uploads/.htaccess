@@ -1,0 +1,10 @@
+Options -Indexes
+
+# Upload hanya untuk file statis, PHP tidak boleh dieksekusi
+<FilesMatch "\.(php|phtml|php3|php4|php5|phar|cgi|pl|asp|aspx|jsp)$">
+    Require all denied
+</FilesMatch>
+
+<IfModule mod_php.c>
+    php_flag engine off
+</IfModule>

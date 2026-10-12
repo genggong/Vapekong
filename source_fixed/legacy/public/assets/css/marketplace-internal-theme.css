@@ -1,0 +1,37 @@
+/* Marketplace V15.8 - optional color sync for POS/Admin/Login/Courier */
+body[data-marketplace-theme-sync="on"]{
+  --kp-theme-primary:var(--mp-primary)!important;--kp-theme-secondary:var(--mp-secondary)!important;--kp-theme-accent:var(--mp-accent)!important;
+  --kp-theme-soft:var(--mp-soft)!important;--kp-theme-border:var(--mp-line)!important;
+  --kp-red:var(--mp-primary)!important;--kp-red-2:var(--mp-primary)!important;--kp-red-3:var(--mp-accent)!important;--kp-red-dark:var(--mp-secondary)!important;
+  --kp-soft:var(--mp-soft)!important;--kp-soft-2:var(--mp-soft-2)!important;--kp-border:var(--mp-line)!important;--kp-border-2:var(--mp-line-strong)!important;
+  --primary:var(--mp-primary)!important;--primary-dark:var(--mp-secondary)!important;--primary-light:var(--mp-accent)!important;
+}
+body[data-marketplace-theme-sync="on"],body[data-marketplace-theme-sync="on"] .admin-wrapper{background:linear-gradient(180deg,var(--mp-soft),#fff 48%,var(--mp-soft-2))!important}
+body[data-marketplace-theme-sync="on"] .admin-sidebar{background:linear-gradient(180deg,var(--mp-secondary),var(--mp-primary) 55%,color-mix(in srgb,var(--mp-secondary) 78%,#000))!important;box-shadow:16px 0 50px rgba(var(--mp-rgb),.22)!important}
+body[data-marketplace-theme-sync="on"] .sidebar-menu a:hover,body[data-marketplace-theme-sync="on"] .sidebar-menu a.active{background:linear-gradient(135deg,var(--mp-accent),var(--mp-primary-dark))!important;color:#fff!important}
+body[data-marketplace-theme-sync="on"] .sidebar-user-avatar{color:var(--mp-primary-dark)!important}
+body[data-marketplace-theme-sync="on"] .sidebar-brand span,body[data-marketplace-theme-sync="on"] .sidebar-menu-title{color:color-mix(in srgb,#fff 72%,var(--mp-soft))!important}
+body[data-marketplace-theme-sync="on"] .topbar-title h1,body[data-marketplace-theme-sync="on"] .page-topbar h1,body[data-marketplace-theme-sync="on"] .premium-card h3,body[data-marketplace-theme-sync="on"] .system-form-card h3{color:var(--mp-primary-dark)!important}
+body[data-marketplace-theme-sync="on"] .system-btn.primary,body[data-marketplace-theme-sync="on"] .btn-premium,body[data-marketplace-theme-sync="on"] .btn-primary,body[data-marketplace-theme-sync="on"] .premium-table thead th{background:linear-gradient(135deg,var(--mp-accent),var(--mp-primary-dark))!important;color:#fff!important;border-color:transparent!important}
+body[data-marketplace-theme-sync="on"] .system-card .icon,body[data-marketplace-theme-sync="on"] .sidebar-toggle{background:var(--mp-soft)!important;color:var(--mp-primary)!important;border-color:var(--mp-line)!important}
+body[data-marketplace-theme-sync="on"] input:focus,body[data-marketplace-theme-sync="on"] select:focus,body[data-marketplace-theme-sync="on"] textarea:focus{border-color:var(--mp-primary)!important;box-shadow:0 0 0 4px color-mix(in srgb,var(--mp-primary) 15%,transparent)!important}
+
+/* Login Staff/Admin */
+body.login-marketplace-sync{background:var(--mp-secondary)!important}
+body.login-marketplace-sync .login-page{background:radial-gradient(circle at top left,color-mix(in srgb,var(--mp-accent) 42%,transparent),transparent 35%),radial-gradient(circle at bottom right,color-mix(in srgb,var(--mp-primary) 34%,transparent),transparent 40%),linear-gradient(135deg,color-mix(in srgb,var(--mp-secondary) 78%,#000),var(--mp-secondary))!important}
+body.login-marketplace-sync .shape-1{background:var(--mp-accent)!important}body.login-marketplace-sync .shape-2{background:var(--mp-primary-dark)!important}body.login-marketplace-sync .shape-3{background:var(--mp-primary)!important}
+body.login-marketplace-sync .brand-icon,body.login-marketplace-sync .btn-login{background:linear-gradient(135deg,var(--mp-accent),var(--mp-primary-dark))!important;box-shadow:0 18px 40px rgba(var(--mp-rgb),.30)!important}
+body.login-marketplace-sync .input-wrap input:focus{border-color:var(--mp-primary)!important;box-shadow:0 0 0 5px color-mix(in srgb,var(--mp-primary) 13%,transparent)!important}
+body.login-marketplace-sync .marketplace-back:hover{border-color:var(--mp-primary)!important;color:var(--mp-primary)!important}
+
+/* Courier portal */
+body.courier-marketplace-sync{--cp:var(--mp-primary)!important;--cp2:var(--mp-accent)!important;--line:var(--mp-line)!important;--bg:var(--mp-soft-2)!important}
+body.courier-marketplace-sync .courier-brand-icon,body.courier-marketplace-sync .courier-btn.primary,body.courier-marketplace-sync .courier-login-icon,body.courier-marketplace-sync .courier-avatar-large{background:linear-gradient(135deg,var(--mp-primary),var(--mp-accent))!important;box-shadow:0 10px 25px rgba(var(--mp-rgb),.20)!important}
+body.courier-marketplace-sync .courier-hero,body.courier-marketplace-sync .courier-order-hero,body.courier-marketplace-sync .courier-page-head{background:linear-gradient(135deg,#fff,var(--mp-soft))!important;border-color:var(--mp-line)!important}
+body.courier-marketplace-sync .courier-top-profile>span,body.courier-marketplace-sync .courier-icon-btn,body.courier-marketplace-sync .courier-bottom-nav a.active{background:var(--mp-soft)!important;color:var(--mp-primary)!important}
+body.courier-marketplace-sync .courier-form input:focus,body.courier-marketplace-sync .courier-form textarea:focus,body.courier-marketplace-sync .courier-form select:focus{border-color:var(--mp-primary)!important;box-shadow:0 0 0 4px color-mix(in srgb,var(--mp-primary) 13%,transparent)!important}
+body[data-marketplace-theme-sync="on"]{--bs-primary:var(--mp-primary)!important;--bs-primary-rgb:var(--mp-rgb)!important}
+body[data-marketplace-theme-sync="on"] input[type="checkbox"],body[data-marketplace-theme-sync="on"] input[type="radio"]{accent-color:var(--mp-primary)!important}
+body[data-marketplace-theme-sync="on"] .swal2-confirm,body[data-marketplace-theme-sync="on"] .dataTables_wrapper .page-item.active .page-link,body[data-marketplace-theme-sync="on"] .pagination .page-item.active .page-link{background:linear-gradient(135deg,var(--mp-accent),var(--mp-primary-dark))!important;border-color:var(--mp-primary)!important;color:#fff!important}
+body[data-marketplace-theme-sync="on"] .dataTables_wrapper .page-link,body[data-marketplace-theme-sync="on"] .pagination .page-link{color:var(--mp-primary-dark)!important}
+body[data-marketplace-theme-sync="on"] .mobile-bottom-nav a.active,body[data-marketplace-theme-sync="on"] .bottom-nav a.active,body[data-marketplace-theme-sync="on"] .pos-bottom-nav a.active,body[data-marketplace-theme-sync="on"] .nav-bottom a.active{background:linear-gradient(135deg,var(--mp-accent),var(--mp-primary-dark))!important;color:#fff!important}

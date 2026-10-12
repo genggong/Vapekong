@@ -1,0 +1,490 @@
+/* =========================================================
+   KasirPro Global UI Responsive Polish
+   Fokus: tampilan saja, tidak mengubah logic fitur.
+   ========================================================= */
+
+:root {
+    --kp-red: #991b1b;
+    --kp-red-2: #dc2626;
+    --kp-red-3: #ef4444;
+    --kp-soft: #fff1f2;
+    --kp-soft-2: #fff7f7;
+    --kp-border: #fee2e2;
+    --kp-border-2: #fecaca;
+    --kp-text: #0f172a;
+    --kp-muted: #64748b;
+    --kp-card: #ffffff;
+    --kp-shadow: 0 16px 45px rgba(153, 27, 27, .08);
+    --kp-shadow-soft: 0 10px 26px rgba(153, 27, 27, .06);
+    --kp-radius: 24px;
+    --kp-radius-sm: 16px;
+}
+
+/* Body & main wrapper */
+body {
+    background:
+        radial-gradient(circle at top left, rgba(254, 226, 226, .82), transparent 32rem),
+        linear-gradient(180deg, #fff7f7 0%, #fff 45%, #fff 100%) !important;
+    color: var(--kp-text);
+    text-rendering: optimizeLegibility;
+}
+
+.admin-main,
+.system-wrap,
+.purchases-wrap,
+.returns-wrap,
+.shifts-page,
+.stock-opname-page {
+    max-width: 1440px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* Header halaman */
+.page-topbar,
+.admin-topbar {
+    border: 1px solid rgba(254, 202, 202, .72);
+    border-radius: 28px;
+    background: rgba(255, 255, 255, .92);
+    box-shadow: var(--kp-shadow-soft);
+    backdrop-filter: blur(12px);
+}
+
+.topbar-title h1,
+.page-topbar h1 {
+    letter-spacing: -.04em;
+    color: var(--kp-red);
+}
+
+.topbar-title p,
+.page-topbar p {
+    color: var(--kp-muted);
+    font-weight: 700;
+    line-height: 1.45;
+}
+
+/* Cards umum */
+.system-form-card,
+.premium-card,
+.opname-card,
+.sr-detail-card,
+.debt-detail-card,
+.debt-pay-card,
+.bundle-stat,
+.location-stat,
+.price-stat,
+.sr-stat,
+.debt-stat {
+    background: rgba(255,255,255,.96) !important;
+    border: 1px solid var(--kp-border) !important;
+    border-radius: var(--kp-radius) !important;
+    box-shadow: var(--kp-shadow) !important;
+}
+
+.system-form-card h3,
+.premium-card h3,
+.opname-card h3,
+.sr-detail-card h3,
+.debt-detail-card h3,
+.debt-pay-card h3 {
+    color: var(--kp-red);
+    letter-spacing: -.025em;
+}
+
+/* Tombol umum */
+.system-btn,
+.btn-premium,
+.shift-btn,
+.opname-btn,
+button.system-btn,
+a.system-btn {
+    border-radius: 999px !important;
+    min-height: 42px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    font-weight: 900 !important;
+    text-decoration: none !important;
+    transition: transform .16s ease, box-shadow .16s ease, background .16s ease;
+}
+
+.system-btn:hover,
+.btn-premium:hover,
+.shift-btn:hover,
+.opname-btn:hover {
+    transform: translateY(-1px);
+}
+
+.system-btn.primary,
+.btn-premium,
+.shift-btn.primary,
+.opname-btn.primary {
+    background: linear-gradient(135deg, var(--kp-red-3), var(--kp-red)) !important;
+    color: #fff !important;
+    border: 0 !important;
+    box-shadow: 0 12px 26px rgba(153, 27, 27, .18) !important;
+}
+
+.system-btn.soft,
+.btn-premium.outline,
+.shift-btn.soft,
+.opname-btn.soft {
+    background: var(--kp-soft) !important;
+    color: var(--kp-red) !important;
+    border: 1px solid var(--kp-border-2) !important;
+}
+
+/* Form global */
+.system-field label,
+.mini-label,
+label {
+    font-weight: 900;
+}
+
+.system-field input,
+.system-field select,
+.system-field textarea,
+.pos-input,
+.pos-select,
+input[type="text"],
+input[type="number"],
+input[type="date"],
+input[type="datetime-local"],
+input[type="email"],
+input[type="password"],
+select,
+textarea {
+    border-color: var(--kp-border-2) !important;
+    border-radius: 18px !important;
+    color: var(--kp-text);
+    background-color: #fff !important;
+    transition: border-color .16s ease, box-shadow .16s ease;
+}
+
+.system-field input:focus,
+.system-field select:focus,
+.system-field textarea:focus,
+.pos-input:focus,
+.pos-select:focus,
+input:focus,
+select:focus,
+textarea:focus {
+    outline: none !important;
+    border-color: var(--kp-red-3) !important;
+    box-shadow: 0 0 0 4px rgba(239, 68, 68, .12) !important;
+}
+
+/* Tables */
+.table-responsive {
+    width: 100%;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    border-radius: 20px;
+}
+
+.premium-table,
+table.premium-table {
+    width: 100%;
+    border-collapse: separate !important;
+    border-spacing: 0 !important;
+    overflow: hidden;
+    border-radius: 20px;
+}
+
+.premium-table thead th {
+    background: linear-gradient(135deg, var(--kp-red-2), var(--kp-red)) !important;
+    color: #fff !important;
+    font-weight: 900 !important;
+    border: 0 !important;
+    white-space: nowrap;
+}
+
+.premium-table tbody td {
+    border-bottom: 1px solid rgba(254, 202, 202, .55) !important;
+    vertical-align: middle !important;
+}
+
+.premium-table tbody tr:hover {
+    background: #fff7f7;
+}
+
+/* DataTables controls */
+.dataTables_wrapper,
+.dt-container {
+    width: 100%;
+}
+
+.dataTables_wrapper .dataTables_length,
+.dataTables_wrapper .dataTables_filter,
+.dt-container .dt-length,
+.dt-container .dt-search {
+    margin-bottom: 12px !important;
+}
+
+.dataTables_wrapper .dataTables_info,
+.dataTables_wrapper .dataTables_paginate,
+.dt-container .dt-info,
+.dt-container .dt-paging {
+    margin-top: 12px !important;
+}
+
+.dataTables_wrapper .paginate_button,
+.dt-container .dt-paging-button {
+    border-radius: 12px !important;
+    border: 1px solid var(--kp-border) !important;
+    margin: 0 2px !important;
+}
+
+/* Sidebar */
+.admin-sidebar {
+    border-right: 1px solid rgba(254, 202, 202, .75);
+    box-shadow: 12px 0 40px rgba(153, 27, 27, .06);
+}
+
+.sidebar-brand {
+    border-bottom: 1px solid rgba(254, 202, 202, .72);
+}
+
+.sidebar-menu a {
+    border-radius: 18px;
+    margin: 4px 8px;
+    font-weight: 800;
+}
+
+.sidebar-menu a.active,
+.sidebar-menu a:hover {
+    background: linear-gradient(135deg, #fff1f2, #fee2e2);
+    color: var(--kp-red);
+}
+
+/* POS bottom nav */
+.mobile-bottom-nav,
+.bottom-nav,
+.pos-bottom-nav {
+    border: 1px solid rgba(254, 202, 202, .9) !important;
+    box-shadow: 0 -12px 40px rgba(153, 27, 27, .10) !important;
+    backdrop-filter: blur(16px);
+}
+
+/* Badges / status */
+.badge,
+.badge-soft,
+.debt-status,
+.sr-status,
+.bundle-status,
+.location-badge,
+.price-level-pill {
+    font-weight: 900 !important;
+    border-radius: 999px !important;
+}
+
+/* Gambar product/thumb jangan pecah */
+img {
+    max-width: 100%;
+}
+
+.pos-product-img img,
+.location-thumb img,
+.price-thumb img,
+.bundle-thumb img,
+.bundle-preview img {
+    object-fit: cover;
+}
+
+/* Spacing konsisten */
+.system-form-card + .system-form-card,
+.premium-card + .premium-card,
+section + section {
+    margin-top: 18px;
+}
+
+.topbar-actions {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+
+/* Hindari elemen terlalu lebar */
+* {
+    min-width: 0;
+}
+
+td,
+th {
+    overflow-wrap: anywhere;
+}
+
+/* Mobile */
+@media (max-width: 900px) {
+    .admin-main,
+    .system-wrap,
+    .purchases-wrap,
+    .returns-wrap,
+    .shifts-page,
+    .stock-opname-page {
+        padding-left: 14px !important;
+        padding-right: 14px !important;
+    }
+
+    .page-topbar,
+    .admin-topbar {
+        border-radius: 24px;
+        padding: 18px !important;
+        display: grid !important;
+        grid-template-columns: auto 1fr;
+        gap: 12px;
+        align-items: center;
+    }
+
+    .topbar-title {
+        min-width: 0;
+    }
+
+    .topbar-title h1,
+    .page-topbar h1 {
+        font-size: clamp(24px, 8vw, 38px) !important;
+        line-height: 1.08;
+        margin-bottom: 6px;
+    }
+
+    .topbar-title p,
+    .page-topbar p {
+        font-size: 14px !important;
+    }
+
+    .topbar-actions {
+        grid-column: 1 / -1;
+        width: 100%;
+    }
+
+    .topbar-actions .system-btn,
+    .topbar-actions .btn-premium,
+    .topbar-actions .shift-btn,
+    .topbar-actions .opname-btn {
+        flex: 1 1 auto;
+        min-width: 140px;
+    }
+
+    .system-form-card,
+    .premium-card,
+    .opname-card,
+    .sr-detail-card,
+    .debt-detail-card,
+    .debt-pay-card {
+        border-radius: 24px !important;
+        padding: 18px !important;
+    }
+
+    .system-form-grid,
+    .bundle-form-grid,
+    .debt-filter,
+    .price-filter,
+    .location-filter {
+        grid-template-columns: 1fr !important;
+    }
+
+    .dataTables_wrapper > .row:first-child,
+    .dt-container > .row:first-child {
+        gap: 10px !important;
+    }
+
+    .table-responsive {
+        border-radius: 18px;
+    }
+
+    .premium-table {
+        min-width: 680px;
+    }
+}
+
+/* HP kecil */
+@media (max-width: 560px) {
+    body {
+        font-size: 15px;
+    }
+
+    .admin-main,
+    .system-wrap,
+    .purchases-wrap,
+    .returns-wrap,
+    .shifts-page,
+    .stock-opname-page {
+        padding-left: 10px !important;
+        padding-right: 10px !important;
+        padding-bottom: 110px !important;
+    }
+
+    .page-topbar,
+    .admin-topbar {
+        margin-top: 8px;
+        border-radius: 22px;
+    }
+
+    .sidebar-toggle {
+        width: 54px !important;
+        height: 54px !important;
+        border-radius: 18px !important;
+    }
+
+    .system-btn,
+    .btn-premium,
+    .shift-btn,
+    .opname-btn {
+        min-height: 46px;
+        padding: 10px 16px !important;
+    }
+
+    .topbar-actions .system-btn,
+    .topbar-actions .btn-premium,
+    .topbar-actions .shift-btn,
+    .topbar-actions .opname-btn {
+        width: 100%;
+    }
+
+    .system-field input,
+    .system-field select,
+    .system-field textarea,
+    .pos-input,
+    .pos-select,
+    input,
+    select,
+    textarea {
+        min-height: 48px;
+        font-size: 16px !important;
+    }
+
+    .dataTables_wrapper .dataTables_length label,
+    .dataTables_wrapper .dataTables_filter label,
+    .dt-container .dt-length label,
+    .dt-container .dt-search label {
+        display: grid !important;
+        grid-template-columns: auto 1fr auto;
+        gap: 8px !important;
+        align-items: center;
+        width: 100%;
+    }
+
+    .dataTables_wrapper .dataTables_filter input,
+    .dt-container .dt-search input {
+        width: 100% !important;
+        margin-left: 0 !important;
+    }
+
+    .premium-table th,
+    .premium-table td {
+        padding: 12px !important;
+    }
+}
+
+/* Reduce motion / lebih ringan */
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        animation-duration: .01ms !important;
+        animation-iteration-count: 1 !important;
+        scroll-behavior: auto !important;
+        transition-duration: .01ms !important;
+    }
+}

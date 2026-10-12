@@ -1,0 +1,334 @@
+
+/* =========================================================
+   POS CART LAYOUT FIX FINAL
+   Memperbaiki keranjang POS yang teksnya turun per huruf,
+   qty control terlalu besar, dan layout item berantakan.
+   Tempel di paling bawah public/assets/css/pos.css
+   ========================================================= */
+
+.pos-empty-cart {
+    border: 1px dashed #fecaca;
+    background: #fff7f7;
+    color: #0f172a;
+    border-radius: 22px;
+    padding: 18px;
+    display: grid;
+    gap: 4px;
+}
+
+.pos-empty-cart i {
+    color: #991b1b;
+    font-size: 24px;
+}
+
+.pos-empty-cart b {
+    font-weight: 950;
+}
+
+.pos-empty-cart span {
+    color: #64748b;
+    font-weight: 750;
+}
+
+/* Wrapper item keranjang dari berbagai kemungkinan class */
+.pos-cart-item,
+.cart-item,
+.kasir-cart-item,
+.pos-order-item,
+[data-cart-id] {
+    width: 100% !important;
+    display: grid !important;
+    grid-template-columns: minmax(0, 1fr) auto !important;
+    gap: 12px !important;
+    align-items: center !important;
+    padding: 14px !important;
+    margin: 0 0 12px !important;
+    border: 1px solid #fee2e2 !important;
+    background: #ffffff !important;
+    border-radius: 22px !important;
+    box-shadow: 0 12px 32px rgba(127, 29, 29, .06) !important;
+    overflow: hidden !important;
+}
+
+/* Kalau masih ada gambar di item cart, kecilkan total */
+.pos-cart-item img,
+.cart-item img,
+.kasir-cart-item img,
+.pos-order-item img,
+[data-cart-id] img {
+    width: 52px !important;
+    height: 52px !important;
+    min-width: 52px !important;
+    max-width: 52px !important;
+    min-height: 52px !important;
+    max-height: 52px !important;
+    object-fit: cover !important;
+    border-radius: 16px !important;
+}
+
+/* Area gambar/icon item */
+.cart-item-img,
+.pos-cart-img,
+.cart-product-img {
+    width: 52px !important;
+    height: 52px !important;
+    min-width: 52px !important;
+    border-radius: 16px !important;
+    display: grid !important;
+    place-items: center !important;
+    background: #fee2e2 !important;
+    color: #991b1b !important;
+    overflow: hidden !important;
+}
+
+/* Info produk harus lebar, bukan sempit */
+.cart-item-info,
+.pos-cart-info,
+.cart-product-info,
+.cart-info {
+    min-width: 0 !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    display: block !important;
+}
+
+/* Nama produk jangan turun per huruf */
+.cart-item-info b,
+.pos-cart-info b,
+.cart-product-info b,
+.cart-info b,
+.pos-cart-item b,
+.cart-item b,
+.kasir-cart-item b,
+.pos-order-item b,
+[data-cart-id] b {
+    display: block !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    white-space: normal !important;
+    word-break: normal !important;
+    overflow-wrap: normal !important;
+    hyphens: none !important;
+    color: #0f172a !important;
+    font-size: 15px !important;
+    font-weight: 950 !important;
+    line-height: 1.25 !important;
+    margin: 0 0 4px !important;
+}
+
+/* Meta kategori/harga */
+.cart-item-info small,
+.pos-cart-info small,
+.cart-product-info small,
+.cart-info small,
+.pos-cart-item small,
+.cart-item small,
+.kasir-cart-item small,
+.pos-order-item small,
+[data-cart-id] small {
+    display: block !important;
+    white-space: normal !important;
+    word-break: normal !important;
+    overflow-wrap: normal !important;
+    color: #64748b !important;
+    font-size: 12px !important;
+    font-weight: 750 !important;
+    line-height: 1.3 !important;
+    margin: 0 0 5px !important;
+}
+
+.cart-item-subtotal,
+.pos-cart-subtotal,
+.cart-subtotal {
+    color: #7f1d1d !important;
+    font-size: 13px !important;
+    font-weight: 950 !important;
+    line-height: 1.25 !important;
+    white-space: nowrap !important;
+}
+
+/* Qty control jangan selebar card */
+.cart-item-qty,
+.qty-control,
+.qty-controls,
+.pos-qty-control,
+.cart-qty {
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    gap: 6px !important;
+    width: auto !important;
+    min-width: 118px !important;
+    max-width: 132px !important;
+    padding: 6px !important;
+    border-radius: 18px !important;
+    background: #fff5f5 !important;
+    border: 1px solid #fee2e2 !important;
+    box-shadow: none !important;
+}
+
+/* Tombol minus plus kecil */
+.cart-qty-minus,
+.cart-qty-plus,
+.qty-minus,
+.qty-plus,
+.btn-qty-minus,
+.btn-qty-plus,
+[data-cart-minus],
+[data-cart-plus] {
+    width: 34px !important;
+    height: 34px !important;
+    min-width: 34px !important;
+    max-width: 34px !important;
+    min-height: 34px !important;
+    max-height: 34px !important;
+    padding: 0 !important;
+    border: 0 !important;
+    border-radius: 13px !important;
+    display: inline-grid !important;
+    place-items: center !important;
+    background: #ffffff !important;
+    color: #991b1b !important;
+    font-size: 17px !important;
+    font-weight: 950 !important;
+    line-height: 1 !important;
+    box-shadow: 0 8px 18px rgba(127,29,29,.08) !important;
+}
+
+/* Input qty kecil */
+.cart-item-qty input,
+.qty-control input,
+.qty-controls input,
+.pos-qty-control input,
+.cart-qty input,
+[data-cart-qty] {
+    width: 46px !important;
+    min-width: 46px !important;
+    max-width: 46px !important;
+    height: 34px !important;
+    min-height: 34px !important;
+    padding: 0 !important;
+    border: 0 !important;
+    background: transparent !important;
+    color: #0f172a !important;
+    text-align: center !important;
+    font-size: 16px !important;
+    font-weight: 950 !important;
+    outline: none !important;
+    box-shadow: none !important;
+}
+
+/* Tombol hapus */
+.cart-item-remove,
+.cart-remove,
+.pos-cart-remove,
+.remove-cart-item,
+[data-cart-remove] {
+    width: 38px !important;
+    height: 38px !important;
+    min-width: 38px !important;
+    max-width: 38px !important;
+    min-height: 38px !important;
+    max-height: 38px !important;
+    padding: 0 !important;
+    border-radius: 14px !important;
+    border: 0 !important;
+    display: inline-grid !important;
+    place-items: center !important;
+    background: #fee2e2 !important;
+    color: #b91c1c !important;
+    font-size: 16px !important;
+}
+
+/* Kalau struktur render terdiri dari img + info + qty + remove */
+.pos-cart-item:has(.cart-item-img),
+.cart-item:has(.cart-item-img),
+[data-cart-id]:has(.cart-item-img) {
+    grid-template-columns: 52px minmax(0, 1fr) auto !important;
+}
+
+.pos-cart-item:has(.cart-item-img) .cart-item-remove,
+.cart-item:has(.cart-item-img) .cart-item-remove,
+[data-cart-id]:has(.cart-item-img) .cart-item-remove {
+    grid-column: 3;
+}
+
+/* Layout item kalau tidak ada gambar */
+.pos-cart-item:not(:has(.cart-item-img)),
+.cart-item:not(:has(.cart-item-img)),
+[data-cart-id]:not(:has(.cart-item-img)) {
+    grid-template-columns: minmax(0, 1fr) auto !important;
+}
+
+/* Pastikan semua teks produk tidak dikunci lebar kecil oleh patch lama */
+.pos-cart-item > *,
+.cart-item > *,
+.kasir-cart-item > *,
+.pos-order-item > *,
+[data-cart-id] > * {
+    min-width: 0 !important;
+}
+
+/* Container keranjang */
+.pos-cart-items,
+#cartItems,
+#posCartItems,
+[data-cart-items] {
+    width: 100% !important;
+    display: block !important;
+    overflow: visible !important;
+}
+
+/* Mobile lebih rapi: info di atas, qty dan hapus di bawah */
+@media (max-width: 768px) {
+    .pos-cart-item,
+    .cart-item,
+    .kasir-cart-item,
+    .pos-order-item,
+    [data-cart-id] {
+        grid-template-columns: minmax(0, 1fr) !important;
+        gap: 10px !important;
+        padding: 14px !important;
+    }
+
+    .pos-cart-item:has(.cart-item-img),
+    .cart-item:has(.cart-item-img),
+    [data-cart-id]:has(.cart-item-img) {
+        grid-template-columns: 52px minmax(0, 1fr) !important;
+    }
+
+    .cart-item-qty,
+    .qty-control,
+    .qty-controls,
+    .pos-qty-control,
+    .cart-qty {
+        grid-column: 1 / -1 !important;
+        justify-self: stretch !important;
+        width: 100% !important;
+        max-width: 100% !important;
+        display: grid !important;
+        grid-template-columns: 42px minmax(0, 1fr) 42px !important;
+        gap: 8px !important;
+        padding: 8px !important;
+    }
+
+    .cart-item-qty input,
+    .qty-control input,
+    .qty-controls input,
+    .pos-qty-control input,
+    .cart-qty input,
+    [data-cart-qty] {
+        width: 100% !important;
+        max-width: 100% !important;
+        height: 38px !important;
+    }
+
+    .cart-item-remove,
+    .cart-remove,
+    .pos-cart-remove,
+    .remove-cart-item,
+    [data-cart-remove] {
+        grid-column: 1 / -1 !important;
+        justify-self: end !important;
+    }
+}

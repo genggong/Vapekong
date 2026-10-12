@@ -1,0 +1,7 @@
+<?php
+/*
+TAMBAHKAN DI public/layouts/admin-footer.php
+Letakkan setelah pos.js dan sebelum </body>
+*/
+?>
+<script src="<?= base_url('assets/js/pos-active-transaction-hardfix.js?v=' . time()); ?>"></script>
