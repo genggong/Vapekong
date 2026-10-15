@@ -1,0 +1,2 @@
+<?php
+require_once __DIR__.'/../../../app/bootstrap.php';require_once __DIR__.'/../../../app/Modules/Marketplace/Marketplace.php';Auth::requireLogin();$db=Database::connect();marketplace_install($db);$id=(int)($_GET['id']??0);$s=$db->prepare("SELECT * FROM online_orders WHERE id=? LIMIT 1");$s->execute([$id]);$o=$s->fetch();if(!$o){http_response_code(404);exit('Invoice tidak ditemukan');}$pdf=marketplace_v15_build_invoice_pdf($db,$o);$pdf->download('invoice-'.$o['order_number'].'.pdf');

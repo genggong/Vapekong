@@ -1,0 +1,75 @@
+.accounting-wrap{padding-bottom:140px}
+.accounting-report-title{display:flex;align-items:center;justify-content:space-between;gap:20px;margin:22px 0 16px;padding:22px 24px;border:1px solid var(--kp-theme-border,#fecaca);border-radius:28px;background:linear-gradient(135deg,#fff,var(--kp-theme-soft,#fff1f2));box-shadow:0 20px 60px color-mix(in srgb,var(--kp-theme-primary,#991b1b) 10%,transparent)}
+.accounting-report-title h2{margin:3px 0 4px;font-size:30px;font-weight:950;color:var(--kp-theme-primary,#991b1b);letter-spacing:-.035em}
+.accounting-report-title p{margin:0;color:#64748b;font-weight:700}
+.accounting-kicker{display:inline-flex;padding:7px 10px;border-radius:999px;background:var(--kp-theme-soft,#fff1f2);border:1px solid var(--kp-theme-border,#fecaca);color:var(--kp-theme-primary,#991b1b);font-size:11px;font-weight:950;text-transform:uppercase;letter-spacing:.08em}
+.accounting-report-stamp{min-width:170px;border:1px dashed var(--kp-theme-border,#fecaca);background:#fff;border-radius:20px;padding:14px 16px;text-align:right}
+.accounting-report-stamp small{display:block;color:#94a3b8;font-weight:800;text-transform:uppercase;font-size:10px;letter-spacing:.08em}
+.accounting-report-stamp strong{display:block;color:#0f172a;margin-top:4px}
+.accounting-filter,.accounting-panel{background:#fff;border:1px solid var(--kp-theme-border,#fecaca);border-radius:26px;padding:20px;box-shadow:0 18px 55px rgba(15,23,42,.07);margin-bottom:18px}
+.accounting-filter label{display:block;margin-bottom:8px;color:var(--kp-theme-primary,#991b1b);font-weight:900}
+.accounting-filter .form-control,.accounting-filter .form-select{min-height:50px;border-radius:17px;border:1px solid var(--kp-theme-border,#fecaca);font-weight:750;box-shadow:none}
+.accounting-filter .form-control:focus,.accounting-filter .form-select:focus{border-color:var(--kp-theme-accent,#ef4444);box-shadow:0 0 0 4px color-mix(in srgb,var(--kp-theme-accent,#ef4444) 16%,transparent)}
+.accounting-btn{border:0;border-radius:17px;padding:12px 17px;display:inline-flex;align-items:center;justify-content:center;gap:8px;text-decoration:none;font-weight:950;white-space:nowrap;transition:transform .15s ease,box-shadow .15s ease}
+.accounting-btn:hover{transform:translateY(-1px)}
+.accounting-btn.primary{color:#fff;background:linear-gradient(135deg,var(--kp-theme-accent,#ef4444),var(--kp-theme-primary,#991b1b));box-shadow:0 14px 30px color-mix(in srgb,var(--kp-theme-primary,#991b1b) 22%,transparent)}
+.accounting-btn.soft{color:var(--kp-theme-primary,#991b1b);background:var(--kp-theme-soft,#fff1f2);border:1px solid var(--kp-theme-border,#fecaca)}
+.accounting-basis{display:flex;align-items:flex-start;gap:13px;margin-bottom:18px;padding:16px 18px;border-radius:22px;background:linear-gradient(135deg,var(--kp-theme-soft,#fff1f2),#fff);border:1px solid var(--kp-theme-border,#fecaca);color:#475569}
+.accounting-basis>i{font-size:22px;color:var(--kp-theme-primary,#991b1b);margin-top:1px}
+.accounting-basis strong{display:block;color:var(--kp-theme-primary,#991b1b);margin-bottom:4px}
+.accounting-basis p{margin:0;line-height:1.6;font-size:13px;font-weight:650}
+.accounting-kpi-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:14px;margin-bottom:16px}
+.accounting-kpi{position:relative;overflow:hidden;background:#fff;border:1px solid var(--kp-theme-border,#fecaca);border-radius:24px;padding:18px;box-shadow:0 16px 45px rgba(15,23,42,.07)}
+.accounting-kpi:after{content:"";position:absolute;width:100px;height:100px;border-radius:999px;right:-42px;bottom:-50px;background:color-mix(in srgb,var(--kp-theme-accent,#ef4444) 8%,transparent)}
+.accounting-kpi .icon{width:44px;height:44px;border-radius:15px;display:grid;place-items:center;margin-bottom:12px;background:var(--kp-theme-soft,#fff1f2);border:1px solid var(--kp-theme-border,#fecaca);color:var(--kp-theme-primary,#991b1b);font-size:20px}
+.accounting-kpi span{display:block;color:#64748b;font-size:11px;text-transform:uppercase;letter-spacing:.065em;font-weight:950}
+.accounting-kpi h3{margin:6px 0 4px;color:#0f172a;font-size:22px;font-weight:950;letter-spacing:-.025em}
+.accounting-kpi small{display:block;color:#64748b;line-height:1.45;font-weight:650}
+.accounting-kpi.featured{background:linear-gradient(135deg,var(--kp-theme-primary,#991b1b),var(--kp-theme-secondary,#dc2626));border-color:transparent}
+.accounting-kpi.featured .icon{background:rgba(255,255,255,.15);border-color:rgba(255,255,255,.2);color:#fff}
+.accounting-kpi.featured span,.accounting-kpi.featured h3,.accounting-kpi.featured small{color:#fff}
+.accounting-snapshot-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px;margin-bottom:18px}
+.accounting-snapshot-grid article{background:#fff;border:1px solid var(--kp-theme-border,#fecaca);border-radius:20px;padding:15px 17px}
+.accounting-snapshot-grid span{display:block;color:#64748b;font-size:11px;font-weight:900;text-transform:uppercase;letter-spacing:.05em}
+.accounting-snapshot-grid strong{display:block;color:var(--kp-theme-primary,#991b1b);font-size:18px;margin:5px 0 3px}
+.accounting-snapshot-grid small{color:#94a3b8;line-height:1.35}
+.accounting-chart-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px;margin-bottom:18px}
+.accounting-chart-wide{grid-column:1/-1}
+.accounting-panel-head{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-bottom:14px}
+.accounting-panel-head h3{margin:0;color:var(--kp-theme-primary,#991b1b);font-size:19px;font-weight:950}
+.accounting-panel-head p{margin:3px 0 0;color:#64748b;font-size:13px}
+.accounting-chart-box{position:relative;min-height:330px}
+.accounting-chart-box.compact{min-height:300px}
+.accounting-chart-box canvas{max-height:340px}
+.accounting-table-wrap{overflow:auto;border:1px solid var(--kp-theme-border,#fecaca);border-radius:18px}
+.accounting-table{width:100%;min-width:1100px;border-collapse:separate;border-spacing:0;background:#fff}
+.accounting-table th{padding:13px 12px;background:linear-gradient(135deg,var(--kp-theme-secondary,#dc2626),var(--kp-theme-primary,#991b1b));color:#fff;text-transform:uppercase;font-size:10px;letter-spacing:.055em;white-space:nowrap}
+.accounting-table td{padding:13px 12px;border-bottom:1px solid #eef2f7;color:#0f172a;font-size:13px;vertical-align:middle;white-space:nowrap}
+.accounting-table tbody tr:last-child td{border-bottom:0}
+.accounting-table tbody tr:hover td{background:color-mix(in srgb,var(--kp-theme-soft,#fff1f2) 55%,#fff)}
+.accounting-table td small{color:#94a3b8}
+.accounting-row-actions{display:flex;gap:7px}
+.accounting-row-actions a{width:34px;height:34px;border-radius:11px;display:grid;place-items:center;text-decoration:none;color:var(--kp-theme-primary,#991b1b);background:var(--kp-theme-soft,#fff1f2);border:1px solid var(--kp-theme-border,#fecaca)}
+.accounting-empty{text-align:center!important;color:#64748b!important;padding:28px!important}
+.accounting-print-footer{display:none}
+@media(max-width:1199px){.accounting-kpi-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.accounting-snapshot-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:767px){.accounting-wrap{padding-bottom:165px}.accounting-report-title{align-items:flex-start;flex-direction:column;padding:18px}.accounting-report-title h2{font-size:25px}.accounting-report-stamp{width:100%;text-align:left}.accounting-kpi-grid,.accounting-snapshot-grid,.accounting-chart-grid{grid-template-columns:1fr}.accounting-chart-wide{grid-column:auto}.accounting-chart-box,.accounting-chart-box.compact{min-height:280px}.accounting-panel,.accounting-filter{padding:14px;border-radius:22px}.accounting-btn{width:100%}}
+@media print{
+    @page{size:A4 landscape;margin:9mm}
+    body{background:#fff!important}
+    .admin-sidebar,.admin-footer,.mobile-bottom-nav,.page-loader,.accounting-no-print,.sidebar-backdrop{display:none!important}
+    .admin-wrapper,.admin-main,.accounting-wrap{display:block!important;margin:0!important;padding:0!important;width:100%!important;max-width:none!important}
+    .accounting-report-title,.accounting-panel,.accounting-kpi,.accounting-snapshot-grid article,.accounting-basis{box-shadow:none!important;break-inside:avoid}
+    .accounting-report-title{margin:0 0 10px;padding:12px 14px;border-radius:12px}
+    .accounting-report-title h2{font-size:22px}
+    .accounting-basis{padding:10px 12px;margin-bottom:10px}
+    .accounting-kpi-grid{grid-template-columns:repeat(4,1fr);gap:7px;margin-bottom:8px}
+    .accounting-kpi{padding:10px;border-radius:12px}
+    .accounting-kpi .icon{width:30px;height:30px;border-radius:9px;font-size:14px;margin-bottom:7px}
+    .accounting-kpi h3{font-size:15px}.accounting-kpi small{font-size:9px}
+    .accounting-snapshot-grid{grid-template-columns:repeat(4,1fr);gap:7px;margin-bottom:10px}.accounting-snapshot-grid article{padding:9px;border-radius:10px}.accounting-snapshot-grid strong{font-size:13px}
+    .accounting-chart-grid{grid-template-columns:repeat(2,1fr);gap:8px;margin-bottom:10px}.accounting-chart-wide{grid-column:1/-1}.accounting-panel{padding:10px;border-radius:12px;margin-bottom:10px}.accounting-panel-head{margin-bottom:6px}.accounting-panel-head h3{font-size:14px}.accounting-panel-head p{font-size:9px}
+    .accounting-chart-box{min-height:210px!important;height:210px!important}.accounting-chart-box.compact{min-height:190px!important;height:190px!important}.accounting-chart-box canvas{max-height:210px!important}
+    .accounting-table-wrap{overflow:visible;border-radius:6px}.accounting-table{min-width:0;font-size:8px}.accounting-table th,.accounting-table td{padding:5px 4px;font-size:7px;white-space:normal}.accounting-daily-table{page-break-before:always}
+    .accounting-print-footer{display:flex;justify-content:space-between;margin-top:8px;padding-top:6px;border-top:1px solid #cbd5e1;color:#64748b;font-size:8px}
+}

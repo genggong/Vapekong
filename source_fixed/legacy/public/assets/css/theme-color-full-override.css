@@ -1,0 +1,269 @@
+/* =========================================================
+   Full Theme Color Override
+   Menangkap sisa CSS lama yang masih hardcode merah.
+   ========================================================= */
+
+/* Variabel fallback */
+body {
+    --kp-theme-primary: var(--kp-theme-primary, #991b1b);
+    --kp-theme-secondary: var(--kp-theme-secondary, #dc2626);
+    --kp-theme-accent: var(--kp-theme-accent, #ef4444);
+    --kp-theme-soft: var(--kp-theme-soft, #fff1f2);
+    --kp-theme-border: var(--kp-theme-border, #fecaca);
+}
+
+/* Text warna utama */
+body[data-theme-color] .topbar-title h1,
+body[data-theme-color] .page-topbar h1,
+body[data-theme-color] .dashboard-title,
+body[data-theme-color] .dashboard-page h1,
+body[data-theme-color] .system-card h3,
+body[data-theme-color] .premium-card h3,
+body[data-theme-color] .stat-card h3,
+body[data-theme-color] .metric-card h3,
+body[data-theme-color] .sidebar-menu a.active,
+body[data-theme-color] .sidebar-menu a:hover,
+body[data-theme-color] .mobile-bottom-nav a,
+body[data-theme-color] .bottom-nav a,
+body[data-theme-color] .pos-bottom-nav a,
+body[data-theme-color] .nav-bottom a,
+body[data-theme-color] .system-field label,
+body[data-theme-color] .mini-label {
+    color: var(--kp-theme-primary) !important;
+}
+
+/* Gradient/Background merah lama */
+body[data-theme-color] .hero-card,
+body[data-theme-color] .dashboard-hero,
+body[data-theme-color] .welcome-card,
+body[data-theme-color] .red-hero,
+body[data-theme-color] .btn-premium,
+body[data-theme-color] .system-btn.primary,
+body[data-theme-color] .shift-btn.primary,
+body[data-theme-color] .opname-btn.primary,
+body[data-theme-color] .btn-primary,
+body[data-theme-color] .premium-table thead th,
+body[data-theme-color] .table thead th,
+body[data-theme-color] .sidebar-logo,
+body[data-theme-color] .loader-logo,
+body[data-theme-color] .system-card .icon,
+body[data-theme-color] .stat-icon,
+body[data-theme-color] .metric-icon,
+body[data-theme-color] .sr-stat-icon,
+body[data-theme-color] .price-stat-icon,
+body[data-theme-color] .debt-stat-icon,
+body[data-theme-color] .location-stat-icon,
+body[data-theme-color] .bundle-stat-icon,
+body[data-theme-color] .pos-category.active,
+body[data-theme-color] .pos-tab.active,
+body[data-theme-color] .mobile-bottom-nav a.active,
+body[data-theme-color] .bottom-nav a.active,
+body[data-theme-color] .pos-bottom-nav a.active,
+body[data-theme-color] .nav-bottom a.active {
+    background: linear-gradient(135deg, var(--kp-theme-accent), var(--kp-theme-primary)) !important;
+    background-color: var(--kp-theme-primary) !important;
+    color: #fff !important;
+}
+
+/* Hero dashboard: selector umum */
+body[data-theme-color] [class*="hero"],
+body[data-theme-color] [class*="Hero"] {
+    border-color: var(--kp-theme-border) !important;
+}
+body[data-theme-color] [class*="hero"] .badge,
+body[data-theme-color] [class*="Hero"] .badge,
+body[data-theme-color] .hero-badge,
+body[data-theme-color] .dashboard-badge {
+    background: color-mix(in srgb, var(--kp-theme-soft) 55%, #fff 45%) !important;
+    border-color: color-mix(in srgb, var(--kp-theme-border) 75%, #fff 25%) !important;
+    color: #fff !important;
+}
+
+/* Card soft/icon bg */
+body[data-theme-color] .system-card .icon,
+body[data-theme-color] .stat-card .icon,
+body[data-theme-color] .metric-card .icon,
+body[data-theme-color] .sidebar-toggle,
+body[data-theme-color] .page-topbar .sidebar-toggle,
+body[data-theme-color] .admin-topbar .sidebar-toggle {
+    background: var(--kp-theme-soft) !important;
+    color: var(--kp-theme-primary) !important;
+    border: 1px solid var(--kp-theme-border) !important;
+}
+
+/* Untuk icon yang memang harus solid */
+body[data-theme-color] .sidebar-logo,
+body[data-theme-color] .loader-logo,
+body[data-theme-color] .sr-stat-icon,
+body[data-theme-color] .price-stat-icon,
+body[data-theme-color] .debt-stat-icon,
+body[data-theme-color] .location-stat-icon,
+body[data-theme-color] .bundle-stat-icon {
+    background: linear-gradient(135deg, var(--kp-theme-accent), var(--kp-theme-primary)) !important;
+    color: #fff !important;
+}
+
+/* Border dan card */
+body[data-theme-color] .page-topbar,
+body[data-theme-color] .admin-topbar,
+body[data-theme-color] .system-form-card,
+body[data-theme-color] .system-card,
+body[data-theme-color] .premium-card,
+body[data-theme-color] .stat-card,
+body[data-theme-color] .metric-card,
+body[data-theme-color] .debt-detail-card,
+body[data-theme-color] .debt-pay-card,
+body[data-theme-color] .sr-detail-card,
+body[data-theme-color] .opname-card,
+body[data-theme-color] .table-responsive,
+body[data-theme-color] .mobile-bottom-nav,
+body[data-theme-color] .bottom-nav,
+body[data-theme-color] .pos-bottom-nav,
+body[data-theme-color] .nav-bottom {
+    border-color: var(--kp-theme-border) !important;
+}
+
+/* Soft buttons/badges */
+body[data-theme-color] .system-btn.soft,
+body[data-theme-color] .btn-premium.outline,
+body[data-theme-color] .btn-outline,
+body[data-theme-color] .shift-btn.soft,
+body[data-theme-color] .opname-btn.soft,
+body[data-theme-color] .badge-soft,
+body[data-theme-color] .price-level-pill,
+body[data-theme-color] .location-badge,
+body[data-theme-color] .sidebar-menu a.active,
+body[data-theme-color] .sidebar-menu a:hover {
+    background: var(--kp-theme-soft) !important;
+    border-color: var(--kp-theme-border) !important;
+    color: var(--kp-theme-primary) !important;
+}
+
+/* Bottom nav lengkap */
+body[data-theme-color] .mobile-bottom-nav,
+body[data-theme-color] .bottom-nav,
+body[data-theme-color] .pos-bottom-nav,
+body[data-theme-color] .nav-bottom {
+    background: rgba(255,255,255,.94) !important;
+    box-shadow: 0 -12px 40px color-mix(in srgb, var(--kp-theme-primary) 12%, transparent) !important;
+}
+body[data-theme-color] .mobile-bottom-nav a i,
+body[data-theme-color] .bottom-nav a i,
+body[data-theme-color] .pos-bottom-nav a i,
+body[data-theme-color] .nav-bottom a i {
+    color: inherit !important;
+}
+body[data-theme-color] .mobile-bottom-nav a.active,
+body[data-theme-color] .bottom-nav a.active,
+body[data-theme-color] .pos-bottom-nav a.active,
+body[data-theme-color] .nav-bottom a.active {
+    color: #fff !important;
+    border-color: transparent !important;
+}
+
+/* Form focus */
+body[data-theme-color] input,
+body[data-theme-color] select,
+body[data-theme-color] textarea,
+body[data-theme-color] .pos-input,
+body[data-theme-color] .pos-select {
+    border-color: var(--kp-theme-border) !important;
+}
+body[data-theme-color] input:focus,
+body[data-theme-color] select:focus,
+body[data-theme-color] textarea:focus,
+body[data-theme-color] .pos-input:focus,
+body[data-theme-color] .pos-select:focus {
+    border-color: var(--kp-theme-accent) !important;
+    box-shadow: 0 0 0 4px color-mix(in srgb, var(--kp-theme-accent) 18%, transparent) !important;
+}
+
+/* SVG/Icon stroke/fill yang biasanya masih merah */
+body[data-theme-color] .system-card svg,
+body[data-theme-color] .premium-card svg,
+body[data-theme-color] .stat-card svg,
+body[data-theme-color] .metric-card svg {
+    color: var(--kp-theme-primary) !important;
+}
+
+/* Hardcoded classes umum */
+body[data-theme-color] .text-red,
+body[data-theme-color] .text-primary {
+    color: var(--kp-theme-primary) !important;
+}
+body[data-theme-color] .bg-red,
+body[data-theme-color] .bg-primary {
+    background-color: var(--kp-theme-primary) !important;
+}
+
+/* Bootstrap vars pada body */
+body[data-theme-color] {
+    --bs-primary: var(--kp-theme-primary);
+    --bs-primary-rgb: 153, 27, 27;
+}
+
+/* Khusus tema RGB bootstrap per warna */
+body[data-theme-color="blue"] { --bs-primary-rgb: 29, 78, 216; }
+body[data-theme-color="green"] { --bs-primary-rgb: 22, 101, 52; }
+body[data-theme-color="purple"] { --bs-primary-rgb: 107, 33, 168; }
+body[data-theme-color="orange"] { --bs-primary-rgb: 154, 52, 18; }
+body[data-theme-color="pink"] { --bs-primary-rgb: 157, 23, 77; }
+body[data-theme-color="dark"] { --bs-primary-rgb: 15, 23, 42; }
+
+/* Dark/gelap tetap soft, bukan full hitam agar enak dibaca */
+body[data-theme-color="dark"] {
+    --kp-theme-soft: #f8fafc;
+    --kp-theme-border: #cbd5e1;
+}
+
+/* Keuangan dan Akuntansi mengikuti warna utama tanpa mengubah warna status. */
+body[data-theme-color] .finance-btn.primary,
+body[data-theme-color] .accounting-btn.primary,
+body[data-theme-color] .accounting-kpi.featured {
+    background: linear-gradient(135deg, var(--kp-theme-accent), var(--kp-theme-primary)) !important;
+    border-color: transparent !important;
+    color: #fff !important;
+}
+body[data-theme-color] .finance-btn.soft,
+body[data-theme-color] .accounting-btn.soft,
+body[data-theme-color] .accounting-kicker,
+body[data-theme-color] .accounting-basis > i {
+    background: var(--kp-theme-soft) !important;
+    border-color: var(--kp-theme-border) !important;
+    color: var(--kp-theme-primary) !important;
+}
+body[data-theme-color] .finance-table thead th,
+body[data-theme-color] .accounting-table thead th {
+    background: linear-gradient(135deg, var(--kp-theme-secondary), var(--kp-theme-primary)) !important;
+    color: #fff !important;
+    border-color: var(--kp-theme-border) !important;
+}
+body[data-theme-color] .finance-hero,
+body[data-theme-color] .finance-card,
+body[data-theme-color] .finance-panel,
+body[data-theme-color] .finance-form-card,
+body[data-theme-color] .accounting-report-title,
+body[data-theme-color] .accounting-filter,
+body[data-theme-color] .accounting-basis,
+body[data-theme-color] .accounting-kpi,
+body[data-theme-color] .accounting-snapshot-grid article,
+body[data-theme-color] .accounting-panel {
+    border-color: var(--kp-theme-border) !important;
+}
+body[data-theme-color] .finance-hero h2,
+body[data-theme-color] .finance-panel-head h3,
+body[data-theme-color] .accounting-report-title h2,
+body[data-theme-color] .accounting-panel-head h3,
+body[data-theme-color] .accounting-kpi .icon {
+    color: var(--kp-theme-primary) !important;
+}
+body[data-theme-color] .accounting-kpi .icon {
+    background: var(--kp-theme-soft) !important;
+    border-color: var(--kp-theme-border) !important;
+}
+
+body[data-theme-color] .accounting-kpi.featured .icon {
+    background: rgba(255,255,255,.15) !important;
+    border-color: rgba(255,255,255,.22) !important;
+    color: #fff !important;
+}

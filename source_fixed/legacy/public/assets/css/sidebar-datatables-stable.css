@@ -1,0 +1,275 @@
+/* =========================================================
+   STABLE FIX: SIDEBAR + DATATABLES SCROLL
+   Fokus hanya 2 masalah:
+   1. Sidebar Android tidak bisa dibuka.
+   2. DataTables Produk/Kategori tidak bisa geser kiri-kanan.
+   Tidak mengubah dashboard, footer, header, card, atau modul keuangan.
+   ========================================================= */
+
+/* ===================== SIDEBAR MOBILE STABLE ===================== */
+@media (max-width: 991px) {
+    body.sidebar-open {
+        overflow: hidden !important;
+    }
+
+    .admin-sidebar,
+    #adminSidebar {
+        position: fixed !important;
+        top: 0 !important;
+        left: 0 !important;
+        bottom: 0 !important;
+        width: min(84vw, 330px) !important;
+        max-width: 330px !important;
+        height: 100vh !important;
+        z-index: 5000 !important;
+        transform: translateX(-110%) !important;
+        transition: transform .25s ease !important;
+        overflow-y: auto !important;
+        -webkit-overflow-scrolling: touch !important;
+        display: flex !important;
+        flex-direction: column !important;
+        visibility: visible !important;
+        opacity: 1 !important;
+        pointer-events: auto !important;
+    }
+
+    .admin-sidebar.show,
+    .admin-sidebar.active,
+    .admin-sidebar.open,
+    #adminSidebar.show,
+    #adminSidebar.active,
+    #adminSidebar.open {
+        transform: translateX(0) !important;
+    }
+
+    .sidebar-backdrop,
+    #sidebarBackdrop {
+        position: fixed !important;
+        inset: 0 !important;
+        background: rgba(15, 23, 42, .45) !important;
+        z-index: 4990 !important;
+        opacity: 0 !important;
+        pointer-events: none !important;
+        transition: opacity .2s ease !important;
+        backdrop-filter: blur(2px) !important;
+    }
+
+    body.sidebar-open .sidebar-backdrop,
+    body.sidebar-open #sidebarBackdrop {
+        opacity: 1 !important;
+        pointer-events: auto !important;
+    }
+
+    .sidebar-toggle,
+    #sidebarToggle,
+    .admin-main .sidebar-toggle,
+    .page-topbar .sidebar-toggle {
+        display: grid !important;
+        place-items: center !important;
+        cursor: pointer !important;
+        pointer-events: auto !important;
+        touch-action: manipulation !important;
+        z-index: 3000 !important;
+        border: 0 !important;
+    }
+}
+
+/* Laptop sidebar jangan kena efek mobile */
+@media (min-width: 992px) {
+    .admin-sidebar,
+    #adminSidebar {
+        transform: none !important;
+        visibility: visible !important;
+        opacity: 1 !important;
+        pointer-events: auto !important;
+    }
+
+    .sidebar-backdrop,
+    #sidebarBackdrop {
+        display: none !important;
+    }
+}
+
+/* ===================== DATATABLES SCROLL STABLE ===================== */
+
+/* Parent tidak boleh memotong scroll horizontal tabel */
+.admin-main,
+.premium-card,
+.customer-panel,
+.backup-panel,
+.report-panel,
+.system-panel,
+.audit-panel,
+.stock-panel,
+.product-panel,
+.category-panel,
+.data-panel,
+.card,
+.card-body {
+    min-width: 0 !important;
+}
+
+/* Wrapper bawaan DataTables */
+.dataTables_wrapper,
+.dt-container {
+    width: 100% !important;
+    max-width: 100% !important;
+    overflow: visible !important;
+}
+
+/* Wrapper scroll buatan patch */
+.kp-table-scroll,
+.table-scroll,
+.table-responsive,
+.dt-table-scroll,
+.dataTables_scroll,
+.dataTables_scrollBody,
+.dt-scroll,
+.dt-scroll-body,
+.dt-layout-table {
+    width: 100% !important;
+    max-width: 100% !important;
+    overflow-x: auto !important;
+    overflow-y: hidden !important;
+    -webkit-overflow-scrolling: touch !important;
+    position: relative !important;
+}
+
+/* Tabel produk/kategori/transaksi/stok jangan dipaksa mengecil */
+.kp-table-scroll > table,
+.table-responsive > table,
+.dt-table-scroll > table,
+.dataTables_scrollBody table,
+.dt-scroll-body table,
+.dt-layout-table table,
+table.dataTable,
+table.premium-table,
+table.admin-table,
+table.table {
+    border-collapse: separate !important;
+    border-spacing: 0 !important;
+}
+
+/* Mobile: semua tabel admin minimal lebih lebar supaya bisa swipe */
+@media (max-width: 768px) {
+    .kp-table-scroll,
+    .table-responsive,
+    .dt-table-scroll,
+    .dataTables_scrollBody,
+    .dt-scroll-body,
+    .dt-layout-table {
+        border-radius: 22px !important;
+        scrollbar-width: thin !important;
+        scroll-behavior: smooth !important;
+    }
+
+    .kp-table-scroll table,
+    .table-responsive table,
+    .dt-table-scroll table,
+    .dataTables_scrollBody table,
+    .dt-scroll-body table,
+    .dt-layout-table table,
+    table.dataTable,
+    table.premium-table,
+    table.admin-table {
+        width: max-content !important;
+        min-width: 900px !important;
+        table-layout: auto !important;
+        white-space: nowrap !important;
+    }
+
+    /* Produk butuh lebih lebar karena ada gambar, barcode, harga, stok, aksi */
+    body:has([href*="/admin/products"]) table.dataTable,
+    body:has(.product-table) table,
+    table.product-table,
+    #productsTable,
+    #productTable {
+        min-width: 1080px !important;
+    }
+
+    /* Kategori */
+    body:has([href*="/admin/categories"]) table.dataTable,
+    body:has(.category-table) table,
+    table.category-table,
+    #categoriesTable,
+    #categoryTable {
+        min-width: 860px !important;
+    }
+
+    /* Transaksi */
+    body:has([href*="/admin/transactions"]) table.dataTable,
+    body:has(.transaction-table) table,
+    table.transaction-table,
+    #transactionsTable,
+    #transactionTable {
+        min-width: 980px !important;
+    }
+
+    /* Hindari td jadi turun tidak karuan */
+    table.dataTable th,
+    table.dataTable td,
+    table.premium-table th,
+    table.premium-table td,
+    table.admin-table th,
+    table.admin-table td {
+        white-space: nowrap !important;
+        vertical-align: middle !important;
+    }
+
+    /* Kolom produk boleh tetap rapi */
+    table.dataTable td:first-child,
+    table.premium-table td:first-child,
+    table.admin-table td:first-child {
+        white-space: normal !important;
+        min-width: 220px !important;
+    }
+
+    /* Scroll indicator tipis bawah */
+    .kp-table-scroll::after,
+    .table-responsive::after,
+    .dt-table-scroll::after {
+        content: "Geser tabel ke kanan →" !important;
+        display: block !important;
+        position: sticky !important;
+        left: 0 !important;
+        bottom: 0 !important;
+        width: max-content !important;
+        margin-top: 8px !important;
+        padding: 7px 12px !important;
+        border-radius: 999px !important;
+        background: #fff5f5 !important;
+        color: #991b1b !important;
+        border: 1px solid #fecaca !important;
+        font-size: 12px !important;
+        font-weight: 900 !important;
+    }
+}
+
+/* Kontrol DataTables tetap rapi */
+.dt-layout-row,
+.dataTables_wrapper .row {
+    max-width: 100% !important;
+}
+
+.dt-search input,
+.dataTables_filter input,
+.dt-length select,
+.dataTables_length select {
+    max-width: 100% !important;
+}
+
+/* Aksi tabel tidak membesar aneh */
+.table-actions,
+.action-buttons,
+td.table-actions {
+    white-space: nowrap !important;
+    min-width: 120px !important;
+}
+
+.table-actions .btn,
+.action-buttons .btn,
+.table-actions a,
+.action-buttons a,
+.btn-icon {
+    flex: 0 0 auto !important;
+}

@@ -1,0 +1,120 @@
+body.barcode-camera-open {
+    overflow: hidden;
+}
+.input-action-wrap {
+    display: flex;
+    gap: 10px;
+    align-items: stretch;
+}
+.input-action-wrap input {
+    flex: 1;
+    min-width: 0;
+}
+.input-mini-actions {
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+    margin-top: 10px;
+}
+.btn-mini-tool {
+    border: 0;
+    border-radius: 14px;
+    padding: 10px 12px;
+    background: rgba(185, 28, 28, .08);
+    color: #8b1a1a;
+    font-weight: 900;
+    display: inline-flex;
+    align-items: center;
+    gap: 7px;
+    box-shadow: 0 10px 24px rgba(185, 28, 28, .08);
+}
+.btn-mini-tool:hover {
+    background: linear-gradient(135deg, #ef4444, #991b1b);
+    color: #fff;
+}
+.barcode-camera-modal {
+    position: fixed;
+    inset: 0;
+    z-index: 999999;
+    background: rgba(15, 23, 42, .72);
+    backdrop-filter: blur(14px);
+    display: none;
+    align-items: center;
+    justify-content: center;
+    padding: 18px;
+}
+.barcode-camera-modal.show {
+    display: flex;
+}
+.barcode-camera-card {
+    width: min(560px, 100%);
+    background: #fff;
+    border-radius: 30px;
+    padding: 20px;
+    box-shadow: 0 30px 90px rgba(0, 0, 0, .32);
+    border: 1px solid rgba(255,255,255,.4);
+}
+.barcode-camera-head {
+    display: flex;
+    justify-content: space-between;
+    gap: 14px;
+    margin-bottom: 16px;
+}
+.barcode-camera-head h3 {
+    margin: 0;
+    color: #8b1a1a;
+    font-weight: 950;
+}
+.barcode-camera-head p {
+    margin: 5px 0 0;
+    color: #64748b;
+}
+.barcode-camera-close {
+    width: 44px;
+    height: 44px;
+    border: 0;
+    border-radius: 16px;
+    background: #fee2e2;
+    color: #991b1b;
+    font-size: 18px;
+}
+.barcode-reader-box {
+    border-radius: 24px;
+    overflow: hidden;
+    background: #0f172a;
+    min-height: 280px;
+}
+.barcode-reader-box video {
+    border-radius: 24px;
+}
+.barcode-camera-help {
+    margin-top: 14px;
+    padding: 12px 14px;
+    border-radius: 18px;
+    background: #fff7ed;
+    color: #9a3412;
+    font-weight: 800;
+    display: flex;
+    gap: 8px;
+}
+.label-action-link {
+    background: rgba(37, 99, 235, .10) !important;
+    color: #2563eb !important;
+}
+@media (max-width: 640px) {
+    .input-action-wrap {
+        flex-direction: column;
+    }
+    .btn-mini-tool {
+        width: 100%;
+        justify-content: center;
+        padding: 13px 14px;
+    }
+    .barcode-camera-card {
+        border-radius: 26px;
+        padding: 16px;
+    }
+    .barcode-reader-box {
+        min-height: 240px;
+    }
+}

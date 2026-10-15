@@ -1,0 +1,11 @@
+<?php
+$courierPageTitle=$courierPageTitle??'Portal Kurir';
+$courierActive=$courierActive??'jobs';
+$courierUser=marketplace_courier_session();
+$siteTitle=trim((string)setting('marketplace_site_title',''))?:trim((string)setting('store_name','Vapekong'));
+$marketplaceTheme=marketplace_theme_config();
+$marketplaceThemeSync=!empty($marketplaceTheme['sync_internal']);
+?>
+<!doctype html><html lang="id" style="<?= e(marketplace_theme_style_vars($marketplaceTheme)); ?>"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><meta name="theme-color" content="<?= e($marketplaceThemeSync?$marketplaceTheme['primary']:'#7C3AED'); ?>"><title><?= e($courierPageTitle); ?> - <?= e($siteTitle); ?></title><link rel="preconnect" href="https://cdn.jsdelivr.net"><link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet"><link rel="stylesheet" href="<?= legacy_base_url('assets/css/courier-portal.css?v=15.8.0'); ?>"><link rel="stylesheet" href="<?= legacy_base_url('assets/css/marketplace-internal-theme.css?v=15.8.0'); ?>"></head><body class="courier-body <?= $marketplaceThemeSync?'courier-marketplace-sync':''; ?>" data-marketplace-theme-sync="<?= $marketplaceThemeSync?'on':'off'; ?>">
+<header class="courier-topbar"><a class="courier-brand" href="<?= legacy_base_url('kurir'); ?>"><span class="courier-brand-icon"><i class="bi bi-bicycle"></i></span><span><b><?= e($siteTitle); ?></b><small>Portal Kurir</small></span></a><?php if($courierUser): ?><a class="courier-top-profile" href="<?= legacy_base_url('kurir/profil'); ?>"><span><?= e(substr((string)$courierUser['name'],0,1)); ?></span><div><b><?= e($courierUser['name']); ?></b><small><?= e($courierUser['vehicle_type'].($courierUser['vehicle_number']!==''?' • '.$courierUser['vehicle_number']:'')); ?></small></div></a><?php endif; ?></header>
+<?php if($msg=flash('success')): ?><div class="courier-toast success"><i class="bi bi-check-circle-fill"></i><span><?= e($msg); ?></span></div><?php endif; ?><?php if($msg=flash('error')): ?><div class="courier-toast error"><i class="bi bi-exclamation-triangle-fill"></i><span><?= e($msg); ?></span></div><?php endif; ?>

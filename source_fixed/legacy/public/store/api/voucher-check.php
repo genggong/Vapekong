@@ -1,0 +1,4 @@
+<?php
+require_once __DIR__ . '/_api.php';
+if($_SERVER['REQUEST_METHOD']!=='POST')marketplace_api_json(['success'=>false,'message'=>'Method tidak diizinkan.'],405);
+try{$payload=marketplace_api_payload();marketplace_api_require_csrf($payload);$db=Database::connect();marketplace_install($db);$cart=marketplace_cart($db,is_array($payload['items']??null)?$payload['items']:[]);$v=marketplace_voucher_calculate($db,(string)($payload['voucher_code']??''),(float)$cart['subtotal']);marketplace_api_json(['success'=>true,'code'=>$v['code'],'discount'=>$v['discount'],'subtotal'=>$cart['subtotal'],'benefit_type'=>$v['voucher']['benefit_type']??'order','message'=>$v['code']!==''?(($v['voucher']['benefit_type']??'order')==='shipping'?'Voucher gratis ongkir valid. Potongan ongkir dihitung saat order dibuat.':'Voucher berhasil digunakan.'):'Voucher dihapus.']);}catch(Throwable $e){marketplace_api_error($e);}

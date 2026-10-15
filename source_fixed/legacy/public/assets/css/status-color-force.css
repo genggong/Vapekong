@@ -1,0 +1,117 @@
+/* =========================================================
+   FORCE Status Colors - last layer
+   Hijau sukses, kuning pending, merah gagal.
+   ========================================================= */
+
+.kp-force-status {
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    gap: 8px !important;
+    border-radius: 999px !important;
+    padding: 8px 13px !important;
+    min-height: 32px !important;
+    font-size: 12px !important;
+    font-weight: 950 !important;
+    letter-spacing: .01em !important;
+    line-height: 1 !important;
+    border-width: 1px !important;
+    border-style: solid !important;
+    box-shadow: 0 8px 22px rgba(15, 23, 42, .08) !important;
+    position: relative !important;
+    overflow: hidden !important;
+    white-space: nowrap !important;
+}
+
+.kp-force-status::before {
+    content: "" !important;
+    width: 9px !important;
+    height: 9px !important;
+    flex: 0 0 auto !important;
+    border-radius: 999px !important;
+    background: currentColor !important;
+    box-shadow: 0 0 0 5px color-mix(in srgb, currentColor 14%, transparent) !important;
+}
+
+.kp-force-status::after {
+    content: "" !important;
+    position: absolute !important;
+    inset: 0 !important;
+    transform: translateX(-130%) !important;
+    background: linear-gradient(90deg, transparent, rgba(255,255,255,.45), transparent) !important;
+    animation: kpForceStatusShimmer 3.4s ease-in-out infinite !important;
+    pointer-events: none !important;
+}
+
+.kp-force-success {
+    background: #dcfce7 !important;
+    color: #166534 !important;
+    border-color: #86efac !important;
+}
+
+.kp-force-pending {
+    background: #fef3c7 !important;
+    color: #92400e !important;
+    border-color: #fcd34d !important;
+    animation: kpForceStatusPulse 2.2s ease-in-out infinite !important;
+}
+
+.kp-force-failed {
+    background: #fee2e2 !important;
+    color: #991b1b !important;
+    border-color: #fecaca !important;
+}
+
+@keyframes kpForceStatusShimmer {
+    0%, 58% { transform: translateX(-130%); }
+    78%, 100% { transform: translateX(130%); }
+}
+
+@keyframes kpForceStatusPulse {
+    0%, 100% { box-shadow: 0 8px 22px rgba(15,23,42,.08) !important; }
+    50% { box-shadow: 0 10px 28px rgba(146,64,14,.22) !important; }
+}
+
+/* Fallback class langsung, kalau JS belum jalan */
+span[class*="success"], .badge[class*="success"], [class*="status"][class*="success"],
+span[class*="paid"], .badge[class*="paid"], [class*="status"][class*="paid"],
+span[class*="lunas"], .badge[class*="lunas"], [class*="status"][class*="lunas"],
+span[class*="completed"], .badge[class*="completed"], [class*="status"][class*="completed"],
+span[class*="selesai"], .badge[class*="selesai"], [class*="status"][class*="selesai"],
+span[class*="aktif"], .badge[class*="aktif"], [class*="status"][class*="aktif"] {
+    background: #dcfce7 !important;
+    color: #166534 !important;
+    border-color: #86efac !important;
+}
+
+span[class*="pending"], .badge[class*="pending"], [class*="status"][class*="pending"],
+span[class*="draft"], .badge[class*="draft"], [class*="status"][class*="draft"],
+span[class*="partial"], .badge[class*="partial"], [class*="status"][class*="partial"],
+span[class*="unpaid"], .badge[class*="unpaid"], [class*="status"][class*="unpaid"],
+span[class*="belum"], .badge[class*="belum"], [class*="status"][class*="belum"],
+span[class*="sebagian"], .badge[class*="sebagian"], [class*="status"][class*="sebagian"] {
+    background: #fef3c7 !important;
+    color: #92400e !important;
+    border-color: #fcd34d !important;
+}
+
+span[class*="failed"], .badge[class*="failed"], [class*="status"][class*="failed"],
+span[class*="gagal"], .badge[class*="gagal"], [class*="status"][class*="gagal"],
+span[class*="cancel"], .badge[class*="cancel"], [class*="status"][class*="cancel"],
+span[class*="batal"], .badge[class*="batal"], [class*="status"][class*="batal"],
+span[class*="expired"], .badge[class*="expired"], [class*="status"][class*="expired"],
+span[class*="overdue"], .badge[class*="overdue"], [class*="status"][class*="overdue"],
+span[class*="nonaktif"], .badge[class*="nonaktif"], [class*="status"][class*="nonaktif"],
+span[class*="refunded"], .badge[class*="refunded"], [class*="status"][class*="refunded"],
+span[class*="refund"], .badge[class*="refund"], [class*="status"][class*="refund"] {
+    background: #fee2e2 !important;
+    color: #991b1b !important;
+    border-color: #fecaca !important;
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .kp-force-status,
+    .kp-force-status::after {
+        animation: none !important;
+    }
+}

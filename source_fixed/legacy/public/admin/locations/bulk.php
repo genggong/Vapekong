@@ -1,0 +1,23 @@
+<?php
+require_once __DIR__ . '/../../../app/bootstrap.php';
+require_once __DIR__ . '/_helpers.php';
+require_once __DIR__ . '/../branches/_helpers.php';
+Auth::requireRole(['super_admin','owner','admin']);
+$pageTitle='Input Cepat Lokasi Barang'; $db=Database::connect(); branch_install($db); location_install($db);
+$currentBranch=branch_current($db); $currentBranchId=(int)($currentBranch['id']??0); $branchId=(int)($_GET['branch_id']??($_POST['branch_id']??$currentBranchId));
+if(!branch_is_admin())$branchId=$currentBranchId;
+if($_SERVER['REQUEST_METHOD']==='POST'){
+ if(!CSRF::verify()){ flash('error','Token keamanan tidak valid.'); legacy_redirect('admin/locations/bulk.php?branch_id='.$branchId); }
+ $products=$_POST['product_id']??[]; $areas=$_POST['area']??[]; $racks=$_POST['rack']??[]; $shelves=$_POST['shelf']??[]; $boxes=$_POST['bin_box']??[]; $notes=$_POST['note']??[]; $saved=0;
+ foreach($products as $i=>$pid){ $pid=(int)$pid; if($pid<=0)continue; $area=trim($areas[$i]??''); $rack=trim($racks[$i]??''); $shelf=trim($shelves[$i]??''); $bin=trim($boxes[$i]??''); $note=trim($notes[$i]??''); if($area===''&&$rack===''&&$shelf===''&&$bin===''&&$note==='')continue; location_save($db,$pid,$branchId?:null,$area,$rack,$shelf,$bin,$note); $saved++; }
+ Auth::log('bulk_product_location','Input cepat lokasi barang '.$saved.' produk'); flash('success',$saved.' lokasi barang berhasil disimpan.'); legacy_redirect('admin/locations/index.php?branch_id='.$branchId);
+}
+$sql="SELECT p.id,p.name,p.product_code,p.unit,p.image,p.rack_location,COALESCE(pbs.stock,p.stock) AS stock,pl.area,pl.rack,pl.shelf,pl.bin_box,pl.note FROM products p LEFT JOIN product_branch_stocks pbs ON pbs.product_id=p.id AND pbs.branch_id=? LEFT JOIN product_locations pl ON pl.product_id=p.id AND ".($branchId>0?"pl.branch_id=?":"pl.branch_id IS NULL")." WHERE p.is_active=1 ORDER BY p.name ASC";
+$params=[$branchId]; if($branchId>0)$params[]=$branchId; $stmt=$db->prepare($sql); $stmt->execute($params); $rows=$stmt->fetchAll(); $branches=location_branch_options($db);
+require_once __DIR__.'/../../layouts/admin-header.php'; require_once __DIR__.'/../../layouts/admin-sidebar.php';
+?>
+<link rel="stylesheet" href="<?= legacy_base_url('assets/css/system.css?v=' . time()); ?>"><link rel="stylesheet" href="<?= legacy_base_url('assets/css/locations.css?v=' . time()); ?>">
+<main class="admin-main system-wrap"><header class="admin-topbar page-topbar"><button class="sidebar-toggle" id="sidebarToggle"><i class="bi bi-list"></i></button><div class="topbar-title"><h1>Input Cepat Lokasi Barang</h1><p>Isi rak banyak produk sekaligus.</p></div><div class="topbar-actions"><a class="system-btn soft" href="<?= legacy_base_url('admin/locations/index.php?branch_id='.$branchId); ?>">Kembali</a></div></header>
+<section class="system-form-card"><form method="GET" class="location-filter"><?php if(branch_is_admin()): ?><div class="system-field"><label>Cabang</label><select name="branch_id"><?php foreach($branches as $b): ?><option value="<?= e($b['id']); ?>" <?= (int)$b['id']===$branchId?'selected':''; ?>><?= e($b['name']); ?> (<?= e($b['code']); ?>)</option><?php endforeach; ?></select></div><?php endif; ?><div class="system-field location-filter-actions"><label>&nbsp;</label><button class="system-btn primary">Pilih Cabang</button></div></form></section>
+<form method="POST" class="system-form-card"><?= CSRF::input(); ?><input type="hidden" name="branch_id" value="<?= e($branchId); ?>"><div class="table-responsive"><table class="premium-table location-bulk-table"><thead><tr><th>Produk</th><th>Stok</th><th>Area</th><th>Rak</th><th>Shelf</th><th>Box</th><th>Catatan</th></tr></thead><tbody><?php foreach($rows as $row): ?><tr><td><input type="hidden" name="product_id[]" value="<?= e($row['id']); ?>"><b><?= e($row['name']); ?></b><br><small><?= e($row['product_code']?:'-'); ?> • <?= e($row['unit']?:'pcs'); ?></small></td><td><?= e((int)$row['stock']); ?></td><td><input name="area[]" value="<?= e($row['area']??''); ?>" placeholder="Gudang"></td><td><input name="rack[]" value="<?= e($row['rack']??($row['rack_location']??'')); ?>" placeholder="Rak A"></td><td><input name="shelf[]" value="<?= e($row['shelf']??''); ?>" placeholder="Baris 1"></td><td><input name="bin_box[]" value="<?= e($row['bin_box']??''); ?>" placeholder="Box 01"></td><td><input name="note[]" value="<?= e($row['note']??''); ?>" placeholder="Catatan"></td></tr><?php endforeach; ?></tbody></table></div><div class="system-form-actions"><button class="system-btn primary"><i class="bi bi-save"></i> Simpan Semua</button></div></form></main>
+<?php require_once __DIR__.'/../../layouts/admin-footer.php'; ?>

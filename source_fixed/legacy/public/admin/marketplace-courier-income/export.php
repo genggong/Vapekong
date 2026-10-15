@@ -1,0 +1,12 @@
+<?php
+require_once __DIR__.'/../../../app/bootstrap.php';
+require_once __DIR__.'/../../../app/Modules/Marketplace/Marketplace.php';
+require_once __DIR__.'/../../../app/Modules/DataExchange/Xlsx.php';
+Auth::requireRole(['super_admin','owner']);
+$db=Database::connect();marketplace_install($db);
+$from=preg_match('/^\d{4}-\d{2}-\d{2}$/',(string)($_GET['from']??''))?$_GET['from']:date('Y-m-01');$to=preg_match('/^\d{4}-\d{2}-\d{2}$/',(string)($_GET['to']??''))?$_GET['to']:date('Y-m-d');$subdistrict=trim((string)($_GET['subdistrict']??''));$courierId=max(0,(int)($_GET['courier_id']??0));
+$where=["o.courier_code='store'","o.payment_status='paid'","DATE(COALESCE(o.paid_at,o.created_at)) BETWEEN ? AND ?"];$params=[$from,$to];if($subdistrict!==''){$where[]='o.subdistrict=?';$params[]=$subdistrict;}if($courierId>0){$where[]='a.courier_id=?';$params[]=$courierId;}
+$s=$db->prepare("SELECT o.order_number,o.recipient_name,o.subdistrict,o.district,o.city,o.shipping_cost,o.shipping_discount,o.order_status,COALESCE(o.paid_at,o.created_at) trx_date,c.name courier_name FROM online_orders o LEFT JOIN marketplace_courier_assignments a ON a.order_id=o.id LEFT JOIN marketplace_couriers c ON c.id=a.courier_id WHERE ".implode(' AND ',$where)." ORDER BY trx_date DESC");$s->execute($params);$data=$s->fetchAll()?:[];
+$rows=[[['value'=>'LAPORAN PEMASUKAN ONGKIR KURIR TOKO','style'=>1,'height'=>28]],[['value'=>'Periode '.$from.' s.d. '.$to,'style'=>5]],array_map(fn($h)=>['value'=>$h,'style'=>2],['Tanggal','Order','Penerima','Kelurahan','Kecamatan/Kota','Kurir','Ongkir','Subsidi','Bersih','Status'])];
+foreach($data as $r){$rows[]=[['value'=>date('d/m/Y H:i',strtotime($r['trx_date'])),'style'=>5],['value'=>$r['order_number'],'style'=>5],['value'=>$r['recipient_name'],'style'=>5],['value'=>$r['subdistrict'],'style'=>5],['value'=>trim($r['district'].', '.$r['city'],', '),'style'=>5],['value'=>$r['courier_name']?:'Belum ditugaskan','style'=>5],['value'=>(float)$r['shipping_cost'],'type'=>'number','style'=>3],['value'=>(float)$r['shipping_discount'],'type'=>'number','style'=>3],['value'=>max(0,(float)$r['shipping_cost']-(float)$r['shipping_discount']),'type'=>'number','style'=>3],['value'=>$r['order_status'],'style'=>5]];}
+KpXlsx::download('laporan-ongkir-kurir-toko-'.$from.'-'.$to.'.xlsx',[['name'=>'Ongkir Kurir Toko','rows'=>$rows,'widths'=>[18,24,26,24,30,24,16,16,16,18],'freeze_rows'=>3,'auto_filter'=>true,'filter_row'=>3,'merges'=>['A1:J1','A2:J2']]]);

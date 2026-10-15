@@ -1,0 +1,1454 @@
+/* =========================================================
+   DATATABLES PREMIUM CLEAN FINAL
+   Fokus:
+   - Hilangkan teks Geser tabel ke kanan
+   - Rapikan search/filter
+   - Rapikan pagination
+   - Table tetap bisa scroll kanan kiri di Android
+   - Tidak bikin tabel jadi card/list
+   ========================================================= */
+
+/* HAPUS SEMUA TEKS GESER DARI PATCH LAMA */
+.kp-table-scroll::after,
+.kasir-table-scroll::after,
+.table-responsive::after,
+.dt-table-scroll::after,
+.dataTables_scrollBody::after,
+.dataTables_wrapper::after,
+.dt-scroll-body::after {
+    display: none !important;
+    content: none !important;
+    opacity: 0 !important;
+    visibility: hidden !important;
+    height: 0 !important;
+    width: 0 !important;
+    padding: 0 !important;
+    margin: 0 !important;
+}
+
+/* WRAPPER DATATABLES */
+.dataTables_wrapper {
+    width: 100% !important;
+    max-width: 100% !important;
+    padding: 0 !important;
+    overflow: visible !important;
+}
+
+.dataTables_scroll {
+    width: 100% !important;
+    max-width: 100% !important;
+    border-radius: 22px !important;
+    overflow: hidden !important;
+    border: 1px solid #fee2e2 !important;
+    background: #fff !important;
+}
+
+.dataTables_scrollHead {
+    width: 100% !important;
+    overflow: hidden !important;
+    border-radius: 22px 22px 0 0 !important;
+}
+
+.dataTables_scrollHeadInner {
+    width: auto !important;
+}
+
+.dataTables_scrollBody {
+    width: 100% !important;
+    max-width: 100% !important;
+    overflow-x: auto !important;
+    overflow-y: hidden !important;
+    -webkit-overflow-scrolling: touch !important;
+    border: 0 !important;
+    border-radius: 0 0 22px 22px !important;
+    background: #fff !important;
+}
+
+/* TABLE JANGAN JADI CARD / LIST */
+table.dataTable,
+table.dataTable thead,
+table.dataTable tbody,
+table.dataTable tr,
+table.dataTable th,
+table.dataTable td {
+    float: none !important;
+}
+
+table.dataTable {
+    display: table !important;
+    border-collapse: separate !important;
+    border-spacing: 0 !important;
+    margin: 0 !important;
+    background: #fff !important;
+}
+
+table.dataTable thead {
+    display: table-header-group !important;
+}
+
+table.dataTable tbody {
+    display: table-row-group !important;
+}
+
+table.dataTable tr {
+    display: table-row !important;
+}
+
+table.dataTable th,
+table.dataTable td {
+    display: table-cell !important;
+    vertical-align: middle !important;
+}
+
+/* HEADER TABLE */
+table.dataTable thead th {
+    background: linear-gradient(135deg, #991b1b, #ef4444) !important;
+    color: #fff !important;
+    font-size: 12px !important;
+    font-weight: 950 !important;
+    text-transform: uppercase !important;
+    letter-spacing: .04em !important;
+    padding: 14px 14px !important;
+    white-space: nowrap !important;
+    border: 0 !important;
+    box-shadow: none !important;
+}
+
+/* BODY TABLE */
+table.dataTable tbody td {
+    background: #fff !important;
+    color: #0f172a !important;
+    padding: 14px 14px !important;
+    border-bottom: 1px solid #f1f5f9 !important;
+    white-space: nowrap !important;
+    box-shadow: none !important;
+}
+
+/* CELL SUPPLIER / PRODUK / KATEGORI */
+.product-cell,
+.product-info,
+.category-cell,
+.category-info,
+.supplier-cell,
+.supplier-info {
+    display: flex !important;
+    align-items: center !important;
+    gap: 12px !important;
+    min-width: 230px !important;
+    max-width: 300px !important;
+}
+
+.product-cell img,
+.product-info img,
+.product-thumb,
+.product-image,
+.table-product-image {
+    width: 54px !important;
+    height: 54px !important;
+    min-width: 54px !important;
+    max-width: 54px !important;
+    object-fit: cover !important;
+    border-radius: 16px !important;
+    display: block !important;
+}
+
+.category-icon,
+.cat-icon,
+.supplier-icon {
+    width: 46px !important;
+    height: 46px !important;
+    min-width: 46px !important;
+    border-radius: 15px !important;
+    display: inline-grid !important;
+    place-items: center !important;
+    font-size: 20px !important;
+    background: #fff5f5 !important;
+    color: #991b1b !important;
+}
+
+.product-cell b,
+.product-info b,
+.category-cell b,
+.category-info b,
+.supplier-cell b,
+.supplier-info b {
+    display: block !important;
+    color: #0f172a !important;
+    font-size: 14px !important;
+    font-weight: 950 !important;
+    line-height: 1.25 !important;
+    white-space: normal !important;
+}
+
+.product-cell small,
+.product-info small,
+.category-cell small,
+.category-info small,
+.supplier-cell small,
+.supplier-info small {
+    display: block !important;
+    color: #64748b !important;
+    font-size: 12px !important;
+    font-weight: 750 !important;
+    line-height: 1.3 !important;
+    margin-top: 3px !important;
+    white-space: normal !important;
+}
+
+/* ACTION BUTTON */
+.table-actions,
+.action-buttons,
+.action-group {
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: flex-end !important;
+    gap: 7px !important;
+    white-space: nowrap !important;
+}
+
+.table-actions a,
+.action-buttons a,
+.action-group a,
+.btn-icon,
+.btn-action {
+    width: 38px !important;
+    height: 38px !important;
+    min-width: 38px !important;
+    border-radius: 14px !important;
+    display: inline-grid !important;
+    place-items: center !important;
+    padding: 0 !important;
+    text-decoration: none !important;
+}
+
+/* BADGE */
+.badge,
+.status-badge,
+.badge-soft {
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    gap: 5px !important;
+    border-radius: 999px !important;
+    padding: 7px 11px !important;
+    font-size: 12px !important;
+    font-weight: 900 !important;
+    white-space: nowrap !important;
+}
+
+/* CONTROL ATAS: TAMPILKAN + CARI */
+.dataTables_wrapper > .row:first-child {
+    display: flex !important;
+    align-items: center !important;
+    justify-content: space-between !important;
+    gap: 12px !important;
+    margin: 0 0 14px !important;
+    padding: 0 !important;
+}
+
+.dataTables_length,
+.dataTables_filter {
+    margin: 0 !important;
+    padding: 0 !important;
+    color: #64748b !important;
+    font-weight: 850 !important;
+}
+
+.dataTables_length label,
+.dataTables_filter label {
+    display: flex !important;
+    align-items: center !important;
+    gap: 8px !important;
+    margin: 0 !important;
+    color: #7f1d1d !important;
+    font-size: 14px !important;
+    font-weight: 950 !important;
+    line-height: 1.2 !important;
+}
+
+.dataTables_length select,
+.dataTables_filter input {
+    height: 46px !important;
+    min-height: 46px !important;
+    border-radius: 16px !important;
+    border: 1px solid #fecaca !important;
+    background: #fff7f7 !important;
+    color: #0f172a !important;
+    font-size: 14px !important;
+    font-weight: 850 !important;
+    padding: 8px 12px !important;
+    outline: none !important;
+    box-shadow: none !important;
+}
+
+.dataTables_length select {
+    width: 92px !important;
+}
+
+.dataTables_filter input {
+    width: 220px !important;
+}
+
+/* INFO BAWAH */
+.dataTables_info {
+    color: #64748b !important;
+    font-weight: 850 !important;
+    font-size: 13px !important;
+    padding-top: 14px !important;
+    margin: 0 !important;
+}
+
+/* PAGINATION PREMIUM */
+.dataTables_paginate {
+    padding-top: 12px !important;
+    margin: 0 !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: flex-end !important;
+    gap: 7px !important;
+}
+
+.dataTables_paginate .paginate_button {
+    min-width: 40px !important;
+    height: 40px !important;
+    border: 0 !important;
+    border-radius: 14px !important;
+    padding: 0 12px !important;
+    margin: 0 !important;
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    background: #fff5f5 !important;
+    color: #991b1b !important;
+    font-size: 13px !important;
+    font-weight: 950 !important;
+    box-shadow: none !important;
+    text-decoration: none !important;
+}
+
+.dataTables_paginate .paginate_button.current,
+.dataTables_paginate .paginate_button.current:hover {
+    background: linear-gradient(135deg, #ef4444, #991b1b) !important;
+    color: #fff !important;
+    box-shadow: 0 12px 28px rgba(220, 38, 38, .25) !important;
+}
+
+.dataTables_paginate .paginate_button:hover {
+    background: #fee2e2 !important;
+    color: #991b1b !important;
+    border: 0 !important;
+}
+
+.dataTables_paginate .paginate_button.disabled,
+.dataTables_paginate .paginate_button.disabled:hover {
+    opacity: .45 !important;
+    background: #fff7f7 !important;
+    color: #991b1b !important;
+    box-shadow: none !important;
+}
+
+/* HAPUS STYLE DEFAULT BOOTSTRAP YANG BIKIN PAGINATION KOTAK BIRU */
+.pagination {
+    gap: 7px !important;
+    margin: 0 !important;
+}
+
+.pagination .page-item .page-link {
+    min-width: 40px !important;
+    height: 40px !important;
+    border: 0 !important;
+    border-radius: 14px !important;
+    padding: 0 12px !important;
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    background: #fff5f5 !important;
+    color: #991b1b !important;
+    font-size: 13px !important;
+    font-weight: 950 !important;
+    box-shadow: none !important;
+}
+
+.pagination .page-item.active .page-link {
+    background: linear-gradient(135deg, #ef4444, #991b1b) !important;
+    color: #fff !important;
+    box-shadow: 0 12px 28px rgba(220, 38, 38, .25) !important;
+}
+
+/* MOBILE */
+@media (max-width: 768px) {
+    .dataTables_wrapper > .row:first-child {
+        display: grid !important;
+        grid-template-columns: 1fr !important;
+        gap: 10px !important;
+        margin-bottom: 12px !important;
+    }
+
+    .dataTables_length,
+    .dataTables_filter {
+        width: 100% !important;
+    }
+
+    .dataTables_length label,
+    .dataTables_filter label {
+        width: 100% !important;
+        justify-content: space-between !important;
+        font-size: 14px !important;
+    }
+
+    .dataTables_length select {
+        width: 120px !important;
+        flex: 0 0 120px !important;
+    }
+
+    .dataTables_filter input {
+        width: 100% !important;
+        min-width: 0 !important;
+        flex: 1 1 auto !important;
+    }
+
+    .dataTables_scroll {
+        border-radius: 22px !important;
+        max-width: 100% !important;
+    }
+
+    .dataTables_scrollBody {
+        max-width: 100% !important;
+        overflow-x: auto !important;
+    }
+
+    table.dataTable {
+        width: 960px !important;
+        min-width: 960px !important;
+        max-width: none !important;
+    }
+
+    body.products-page table.dataTable,
+    table.product-table,
+    table.products-table,
+    #productsTable,
+    #productTable {
+        width: 1120px !important;
+        min-width: 1120px !important;
+    }
+
+    body.categories-page table.dataTable,
+    table.category-table,
+    table.categories-table,
+    #categoriesTable,
+    #categoryTable {
+        width: 880px !important;
+        min-width: 880px !important;
+    }
+
+    table.dataTable thead th,
+    table.dataTable tbody td {
+        font-size: 12px !important;
+        padding: 12px 12px !important;
+    }
+
+    .dataTables_wrapper > .row:last-child {
+        display: grid !important;
+        grid-template-columns: 1fr !important;
+        gap: 10px !important;
+        margin: 12px 0 0 !important;
+    }
+
+    .dataTables_info {
+        text-align: left !important;
+        padding-top: 0 !important;
+    }
+
+    .dataTables_paginate {
+        justify-content: center !important;
+        padding-top: 0 !important;
+        flex-wrap: wrap !important;
+    }
+
+    .dataTables_paginate .paginate_button,
+    .pagination .page-item .page-link {
+        min-width: 38px !important;
+        height: 38px !important;
+        border-radius: 13px !important;
+        font-size: 12px !important;
+    }
+}
+/* =========================================================
+   FIX GAMBAR PRODUK DATATABLES TERLALU BESAR
+   Paksa semua gambar di tabel produk jadi thumbnail kecil.
+   ========================================================= */
+
+/* Semua gambar di DataTables */
+table.dataTable img,
+.dataTables_wrapper table img,
+.dataTables_scrollBody table img {
+    width: 54px !important;
+    height: 54px !important;
+    min-width: 54px !important;
+    max-width: 54px !important;
+    min-height: 54px !important;
+    max-height: 54px !important;
+    object-fit: cover !important;
+    border-radius: 16px !important;
+    display: block !important;
+}
+
+/* Khusus tabel produk */
+body.products-page table.dataTable img,
+body.products-page .dataTables_wrapper table img,
+body.products-page .dataTables_scrollBody table img {
+    width: 58px !important;
+    height: 58px !important;
+    min-width: 58px !important;
+    max-width: 58px !important;
+    min-height: 58px !important;
+    max-height: 58px !important;
+    object-fit: cover !important;
+    border-radius: 17px !important;
+}
+
+/* Cell pertama produk jangan melebar karena gambar */
+body.products-page table.dataTable tbody td:first-child {
+    width: 280px !important;
+    min-width: 280px !important;
+    max-width: 280px !important;
+    white-space: normal !important;
+}
+
+/* Kalau struktur gambar + nama produk belum pakai class, tetap dirapikan */
+body.products-page table.dataTable tbody td:first-child > div,
+body.products-page table.dataTable tbody td:first-child .product-cell,
+body.products-page table.dataTable tbody td:first-child .product-info {
+    display: flex !important;
+    align-items: center !important;
+    gap: 12px !important;
+    width: 260px !important;
+    min-width: 260px !important;
+    max-width: 260px !important;
+}
+
+/* Nama produk tetap rapi */
+body.products-page table.dataTable tbody td:first-child b,
+body.products-page table.dataTable tbody td:first-child strong {
+    display: block !important;
+    font-size: 14px !important;
+    font-weight: 950 !important;
+    line-height: 1.25 !important;
+    color: #0f172a !important;
+    white-space: normal !important;
+}
+
+body.products-page table.dataTable tbody td:first-child small,
+body.products-page table.dataTable tbody td:first-child span {
+    font-size: 12px !important;
+    line-height: 1.3 !important;
+    color: #64748b !important;
+}
+
+/* Pastikan tinggi baris tidak ikut gambar lama */
+body.products-page table.dataTable tbody tr {
+    height: auto !important;
+}
+
+body.products-page table.dataTable tbody td {
+    vertical-align: middle !important;
+}
+/* =========================================================
+   FIX HEADER DATATABLES DOBEL SAAT scrollX
+   DataTables scrollX membuat header clone.
+   Header asli di scrollBody harus disembunyikan.
+   ========================================================= */
+
+/* Header atas clone tetap tampil */
+.dataTables_scrollHead table.dataTable thead {
+    display: table-header-group !important;
+    visibility: visible !important;
+}
+
+/* Header asli di body disembunyikan supaya tidak dobel */
+.dataTables_scrollBody table.dataTable thead {
+    display: none !important;
+    visibility: hidden !important;
+    height: 0 !important;
+}
+
+.dataTables_scrollBody table.dataTable thead tr,
+.dataTables_scrollBody table.dataTable thead th {
+    display: none !important;
+    height: 0 !important;
+    padding: 0 !important;
+    border: 0 !important;
+    line-height: 0 !important;
+    font-size: 0 !important;
+}
+
+/* Hilangkan area merah kosong bekas header bawah */
+.dataTables_scrollBody {
+    border-top: 0 !important;
+}
+
+/* Pastikan table body langsung mulai dari isi */
+.dataTables_scrollBody table.dataTable {
+    margin-top: 0 !important;
+}
+
+/* Header atas jangan kepotong */
+.dataTables_scrollHead {
+    border-radius: 22px 22px 0 0 !important;
+    overflow: hidden !important;
+}
+
+.dataTables_scrollHead table.dataTable {
+    margin-bottom: 0 !important;
+}
+
+/* Body table rapat ke header atas */
+.dataTables_scroll {
+    overflow: hidden !important;
+    border-radius: 22px !important;
+    border: 1px solid #fee2e2 !important;
+    background: #fff !important;
+}
+/* =========================================================
+   DATATABLES INFO / HINT CARD PREMIUM
+   Untuk teks: Cari produk/supplier/kategori berdasarkan...
+   ========================================================= */
+
+.dt-hint-card {
+    width: 100%;
+    margin: 18px 0 16px !important;
+    padding: 16px 18px !important;
+    border-radius: 22px !important;
+    background:
+        radial-gradient(circle at top left, rgba(239, 68, 68, .12), transparent 34%),
+        linear-gradient(135deg, #fff7f7, #ffffff) !important;
+    border: 1px solid #fecaca !important;
+    box-shadow: 0 14px 38px rgba(127, 29, 29, .08) !important;
+    display: flex !important;
+    align-items: flex-start !important;
+    gap: 14px !important;
+    color: #64748b !important;
+}
+
+.dt-hint-card .dt-hint-icon {
+    width: 48px !important;
+    height: 48px !important;
+    min-width: 48px !important;
+    border-radius: 17px !important;
+    display: grid !important;
+    place-items: center !important;
+    background: linear-gradient(135deg, #ef4444, #991b1b) !important;
+    color: #fff !important;
+    font-size: 22px !important;
+    box-shadow: 0 12px 28px rgba(220, 38, 38, .20) !important;
+}
+
+.dt-hint-card .dt-hint-content {
+    flex: 1 1 auto !important;
+    min-width: 0 !important;
+}
+
+.dt-hint-card .dt-hint-title {
+    display: block !important;
+    margin: 0 0 4px !important;
+    color: #7f1d1d !important;
+    font-size: 15px !important;
+    font-weight: 950 !important;
+    line-height: 1.3 !important;
+}
+
+.dt-hint-card .dt-hint-text {
+    display: block !important;
+    margin: 0 !important;
+    color: #64748b !important;
+    font-size: 13px !important;
+    font-weight: 750 !important;
+    line-height: 1.55 !important;
+}
+
+/* Control DataTables setelah hint biar tidak mepet */
+.dataTables_wrapper {
+    margin-top: 4px !important;
+}
+
+/* Rapikan area tampilkan & cari */
+.dataTables_wrapper > .row:first-child {
+    background: #fff !important;
+    border: 1px solid #fee2e2 !important;
+    border-radius: 22px !important;
+    padding: 12px !important;
+    margin: 0 0 14px !important;
+    box-shadow: 0 12px 34px rgba(127, 29, 29, .06) !important;
+}
+
+.dataTables_length label,
+.dataTables_filter label {
+    color: #7f1d1d !important;
+    font-weight: 950 !important;
+}
+
+.dataTables_length label::before,
+.dataTables_filter label::before {
+    content: "" !important;
+    width: 12px !important;
+    height: 12px !important;
+    min-width: 12px !important;
+    border-radius: 999px !important;
+    display: inline-block !important;
+    background: #ef4444 !important;
+    box-shadow: 0 0 0 7px rgba(239, 68, 68, .10) !important;
+}
+
+/* Android */
+@media (max-width: 768px) {
+    .dt-hint-card {
+        padding: 14px !important;
+        border-radius: 20px !important;
+        gap: 12px !important;
+        align-items: flex-start !important;
+    }
+
+    .dt-hint-card .dt-hint-icon {
+        width: 42px !important;
+        height: 42px !important;
+        min-width: 42px !important;
+        border-radius: 15px !important;
+        font-size: 20px !important;
+    }
+
+    .dt-hint-card .dt-hint-title {
+        font-size: 14px !important;
+    }
+
+    .dt-hint-card .dt-hint-text {
+        font-size: 12.5px !important;
+        line-height: 1.5 !important;
+    }
+
+    .dataTables_wrapper > .row:first-child {
+        padding: 12px !important;
+        border-radius: 20px !important;
+    }
+}
+/* =========================================================
+   FIX KOLOM DATATABLES PRODUK BIAR HEADER & ISI SEJAJAR
+   Produk | Kode/Barcode | Kategori | Supplier | Harga Beli | dst
+   ========================================================= */
+
+/* Produk table dibuat lebar tetap supaya kolom tidak geser */
+body.products-page table.dataTable,
+body.products-page .dataTables_scrollHead table,
+body.products-page .dataTables_scrollBody table {
+    width: 1380px !important;
+    min-width: 1380px !important;
+    max-width: none !important;
+    table-layout: fixed !important;
+}
+
+/* Samakan lebar setiap kolom header dan body */
+body.products-page table.dataTable th:nth-child(1),
+body.products-page table.dataTable td:nth-child(1) {
+    width: 270px !important;
+    min-width: 270px !important;
+    max-width: 270px !important;
+}
+
+body.products-page table.dataTable th:nth-child(2),
+body.products-page table.dataTable td:nth-child(2) {
+    width: 230px !important;
+    min-width: 230px !important;
+    max-width: 230px !important;
+}
+
+body.products-page table.dataTable th:nth-child(3),
+body.products-page table.dataTable td:nth-child(3) {
+    width: 150px !important;
+    min-width: 150px !important;
+    max-width: 150px !important;
+}
+
+body.products-page table.dataTable th:nth-child(4),
+body.products-page table.dataTable td:nth-child(4) {
+    width: 180px !important;
+    min-width: 180px !important;
+    max-width: 180px !important;
+}
+
+body.products-page table.dataTable th:nth-child(5),
+body.products-page table.dataTable td:nth-child(5) {
+    width: 170px !important;
+    min-width: 170px !important;
+    max-width: 170px !important;
+}
+
+body.products-page table.dataTable th:nth-child(6),
+body.products-page table.dataTable td:nth-child(6) {
+    width: 170px !important;
+    min-width: 170px !important;
+    max-width: 170px !important;
+}
+
+body.products-page table.dataTable th:nth-child(7),
+body.products-page table.dataTable td:nth-child(7) {
+    width: 110px !important;
+    min-width: 110px !important;
+    max-width: 110px !important;
+    text-align: center !important;
+}
+
+body.products-page table.dataTable th:nth-child(8),
+body.products-page table.dataTable td:nth-child(8) {
+    width: 130px !important;
+    min-width: 130px !important;
+    max-width: 130px !important;
+    text-align: center !important;
+}
+
+body.products-page table.dataTable th:nth-child(9),
+body.products-page table.dataTable td:nth-child(9) {
+    width: 160px !important;
+    min-width: 160px !important;
+    max-width: 160px !important;
+    text-align: center !important;
+}
+
+/* Isi kolom tetap rapi */
+body.products-page table.dataTable th,
+body.products-page table.dataTable td {
+    box-sizing: border-box !important;
+    overflow: hidden !important;
+    text-overflow: ellipsis !important;
+    vertical-align: middle !important;
+}
+
+/* Kolom produk boleh 2 baris */
+body.products-page table.dataTable td:nth-child(1) {
+    white-space: normal !important;
+}
+
+/* Kode/barcode boleh 2 baris */
+body.products-page table.dataTable td:nth-child(2) {
+    white-space: normal !important;
+}
+
+/* Harga jangan nempel */
+body.products-page table.dataTable td:nth-child(5),
+body.products-page table.dataTable td:nth-child(6) {
+    font-weight: 850 !important;
+    color: #0f172a !important;
+}
+
+/* Header clone dan body table harus sama */
+body.products-page .dataTables_scrollHeadInner {
+    width: 1380px !important;
+    min-width: 1380px !important;
+}
+
+body.products-page .dataTables_scrollHeadInner table {
+    width: 1380px !important;
+    min-width: 1380px !important;
+}
+
+/* Gambar produk tetap kecil */
+body.products-page table.dataTable img {
+    width: 54px !important;
+    height: 54px !important;
+    min-width: 54px !important;
+    max-width: 54px !important;
+    object-fit: cover !important;
+    border-radius: 16px !important;
+}
+
+/* Biar cell produk rapi */
+body.products-page .product-cell,
+body.products-page .product-info {
+    display: flex !important;
+    align-items: center !important;
+    gap: 12px !important;
+    width: 240px !important;
+    max-width: 240px !important;
+}
+
+body.products-page .product-cell b,
+body.products-page .product-info b {
+    display: block !important;
+    font-size: 13px !important;
+    font-weight: 950 !important;
+    line-height: 1.25 !important;
+    color: #0f172a !important;
+}
+
+body.products-page .product-cell small,
+body.products-page .product-info small {
+    display: block !important;
+    font-size: 11px !important;
+    color: #64748b !important;
+    line-height: 1.3 !important;
+}
+
+/* Android */
+@media (max-width: 768px) {
+    body.products-page .dataTables_scrollBody {
+        overflow-x: auto !important;
+        -webkit-overflow-scrolling: touch !important;
+    }
+
+    body.products-page table.dataTable,
+    body.products-page .dataTables_scrollHead table,
+    body.products-page .dataTables_scrollBody table {
+        width: 1380px !important;
+        min-width: 1380px !important;
+    }
+}
+/* =========================================================
+   FIX UNIVERSAL DATATABLES ALIGNMENT
+   Untuk semua tabel: Produk, Kategori, Supplier, Transaksi,
+   Pelanggan, Stok, Retur, Keuangan, dll.
+   Header dan isi harus sejajar.
+   ========================================================= */
+
+/* Semua table DataTables dibuat stabil */
+.dataTables_wrapper table.dataTable,
+.dataTables_scrollHead table.dataTable,
+.dataTables_scrollBody table.dataTable {
+    border-collapse: separate !important;
+    border-spacing: 0 !important;
+    table-layout: fixed !important;
+    margin: 0 !important;
+}
+
+/* Header clone dan body jangan beda margin */
+.dataTables_scrollHead table.dataTable {
+    margin-bottom: 0 !important;
+}
+
+.dataTables_scrollBody table.dataTable {
+    margin-top: 0 !important;
+}
+
+/* Hilangkan header dobel di body */
+.dataTables_scrollBody table.dataTable thead {
+    display: none !important;
+    visibility: hidden !important;
+    height: 0 !important;
+}
+
+.dataTables_scrollBody table.dataTable thead tr,
+.dataTables_scrollBody table.dataTable thead th {
+    display: none !important;
+    height: 0 !important;
+    padding: 0 !important;
+    border: 0 !important;
+    font-size: 0 !important;
+    line-height: 0 !important;
+}
+
+/* Semua cell jangan melebar liar */
+.dataTables_wrapper table.dataTable th,
+.dataTables_wrapper table.dataTable td {
+    box-sizing: border-box !important;
+    vertical-align: middle !important;
+    overflow: hidden !important;
+    text-overflow: ellipsis !important;
+}
+
+/* Header rapi */
+.dataTables_scrollHead table.dataTable th {
+    white-space: nowrap !important;
+    text-align: left !important;
+}
+
+/* Body default 1 baris */
+.dataTables_scrollBody table.dataTable td {
+    white-space: nowrap !important;
+}
+
+/* Kolom pertama biasanya nama/data utama, boleh 2 baris */
+.dataTables_scrollBody table.dataTable td:first-child {
+    white-space: normal !important;
+}
+
+/* Kolom aksi selalu center */
+.dataTables_wrapper table.dataTable th:last-child,
+.dataTables_wrapper table.dataTable td:last-child {
+    text-align: center !important;
+}
+
+/* Gambar apa pun di tabel jangan membesar */
+.dataTables_wrapper table.dataTable img,
+.dataTables_scrollBody table.dataTable img {
+    width: 54px !important;
+    height: 54px !important;
+    min-width: 54px !important;
+    max-width: 54px !important;
+    min-height: 54px !important;
+    max-height: 54px !important;
+    object-fit: cover !important;
+    border-radius: 16px !important;
+    display: block !important;
+}
+
+/* Info cell: produk/kategori/supplier/customer dibuat rapi */
+.product-cell,
+.product-info,
+.category-cell,
+.category-info,
+.supplier-cell,
+.supplier-info,
+.customer-cell,
+.customer-info,
+.return-cell,
+.return-info,
+.transaction-cell,
+.transaction-info {
+    display: flex !important;
+    align-items: center !important;
+    gap: 12px !important;
+    min-width: 0 !important;
+    max-width: 100% !important;
+}
+
+.product-cell > div,
+.product-info > div,
+.category-cell > div,
+.category-info > div,
+.supplier-cell > div,
+.supplier-info > div,
+.customer-cell > div,
+.customer-info > div,
+.return-cell > div,
+.return-info > div,
+.transaction-cell > div,
+.transaction-info > div {
+    min-width: 0 !important;
+}
+
+.product-cell b,
+.product-info b,
+.category-cell b,
+.category-info b,
+.supplier-cell b,
+.supplier-info b,
+.customer-cell b,
+.customer-info b,
+.return-cell b,
+.return-info b,
+.transaction-cell b,
+.transaction-info b {
+    display: block !important;
+    max-width: 100% !important;
+    color: #0f172a !important;
+    font-size: 13px !important;
+    font-weight: 950 !important;
+    line-height: 1.25 !important;
+    white-space: normal !important;
+    overflow: hidden !important;
+    text-overflow: ellipsis !important;
+}
+
+.product-cell small,
+.product-info small,
+.category-cell small,
+.category-info small,
+.supplier-cell small,
+.supplier-info small,
+.customer-cell small,
+.customer-info small,
+.return-cell small,
+.return-info small,
+.transaction-cell small,
+.transaction-info small {
+    display: block !important;
+    max-width: 100% !important;
+    color: #64748b !important;
+    font-size: 11px !important;
+    font-weight: 700 !important;
+    line-height: 1.3 !important;
+    white-space: normal !important;
+}
+
+/* Icon kecil di tabel */
+.category-icon,
+.cat-icon,
+.supplier-icon,
+.customer-avatar,
+.return-icon,
+.transaction-icon {
+    width: 46px !important;
+    height: 46px !important;
+    min-width: 46px !important;
+    border-radius: 15px !important;
+    display: inline-grid !important;
+    place-items: center !important;
+    font-size: 20px !important;
+}
+
+/* Action button tidak melebar */
+.table-actions,
+.action-buttons,
+.action-group,
+.customer-actions,
+.return-actions {
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    gap: 7px !important;
+    white-space: nowrap !important;
+}
+
+.table-actions a,
+.action-buttons a,
+.action-group a,
+.customer-actions a,
+.return-actions a,
+.btn-icon,
+.btn-action {
+    width: 38px !important;
+    height: 38px !important;
+    min-width: 38px !important;
+    border-radius: 14px !important;
+    display: inline-grid !important;
+    place-items: center !important;
+    padding: 0 !important;
+}
+
+/* Scroll wrapper */
+.dataTables_scroll {
+    width: 100% !important;
+    max-width: 100% !important;
+    overflow: hidden !important;
+    border-radius: 22px !important;
+    border: 1px solid #fee2e2 !important;
+    background: #fff !important;
+}
+
+.dataTables_scrollHead {
+    width: 100% !important;
+    overflow: hidden !important;
+}
+
+.dataTables_scrollBody {
+    width: 100% !important;
+    max-width: 100% !important;
+    overflow-x: auto !important;
+    overflow-y: hidden !important;
+    -webkit-overflow-scrolling: touch !important;
+}
+
+/* Hilangkan teks geser dari semua patch lama */
+.kp-table-scroll::after,
+.kasir-table-scroll::after,
+.table-responsive::after,
+.dt-table-scroll::after,
+.dataTables_scrollBody::after,
+.dataTables_wrapper::after,
+.dt-scroll-body::after {
+    display: none !important;
+    content: none !important;
+}
+
+/* Ukuran umum tiap jenis tabel */
+body.products-page table.dataTable,
+body.products-page .dataTables_scrollHead table,
+body.products-page .dataTables_scrollBody table {
+    width: 1380px !important;
+    min-width: 1380px !important;
+}
+
+body.categories-page table.dataTable,
+body.categories-page .dataTables_scrollHead table,
+body.categories-page .dataTables_scrollBody table {
+    width: 980px !important;
+    min-width: 980px !important;
+}
+
+body.suppliers-page table.dataTable,
+body.suppliers-page .dataTables_scrollHead table,
+body.suppliers-page .dataTables_scrollBody table {
+    width: 1100px !important;
+    min-width: 1100px !important;
+}
+
+body.customers-page table.dataTable,
+body.customers-page .dataTables_scrollHead table,
+body.customers-page .dataTables_scrollBody table {
+    width: 1220px !important;
+    min-width: 1220px !important;
+}
+
+body.transactions-page table.dataTable,
+body.transactions-page .dataTables_scrollHead table,
+body.transactions-page .dataTables_scrollBody table {
+    width: 1180px !important;
+    min-width: 1180px !important;
+}
+
+body.stock-page table.dataTable,
+body.stock-page .dataTables_scrollHead table,
+body.stock-page .dataTables_scrollBody table {
+    width: 1180px !important;
+    min-width: 1180px !important;
+}
+
+body.returns-page table.dataTable,
+body.returns-page .dataTables_scrollHead table,
+body.returns-page .dataTables_scrollBody table {
+    width: 1180px !important;
+    min-width: 1180px !important;
+}
+
+body.finance-page table.dataTable,
+body.finance-page .dataTables_scrollHead table,
+body.finance-page .dataTables_scrollBody table {
+    width: 1120px !important;
+    min-width: 1120px !important;
+}
+
+/* Default kalau halaman belum punya class */
+table.dataTable,
+.dataTables_scrollHead table,
+.dataTables_scrollBody table {
+    min-width: 980px !important;
+}
+
+/* Android */
+@media (max-width: 768px) {
+    .dataTables_scrollBody {
+        overflow-x: auto !important;
+    }
+
+    .dataTables_wrapper table.dataTable th,
+    .dataTables_wrapper table.dataTable td {
+        font-size: 12px !important;
+        padding: 12px 12px !important;
+    }
+}
+/* =========================================================
+   FIX DATATABLES PROMO / VOUCHER BIAR TIDAK KECEPIT
+   Header & isi tetap sejajar, tapi kolom dibuat lega.
+   ========================================================= */
+
+body.promos-page table.dataTable,
+body.promos-page .dataTables_scrollHead table,
+body.promos-page .dataTables_scrollBody table,
+body.promos-page .promos-table {
+    width: 1580px !important;
+    min-width: 1580px !important;
+    max-width: none !important;
+    table-layout: fixed !important;
+}
+
+/* Kolom Promo */
+body.promos-page table.dataTable th:nth-child(1),
+body.promos-page table.dataTable td:nth-child(1) {
+    width: 270px !important;
+    min-width: 270px !important;
+    max-width: 270px !important;
+    white-space: normal !important;
+}
+
+/* Kolom Kode */
+body.promos-page table.dataTable th:nth-child(2),
+body.promos-page table.dataTable td:nth-child(2) {
+    width: 160px !important;
+    min-width: 160px !important;
+    max-width: 160px !important;
+}
+
+/* Kolom Barcode */
+body.promos-page table.dataTable th:nth-child(3),
+body.promos-page table.dataTable td:nth-child(3) {
+    width: 170px !important;
+    min-width: 170px !important;
+    max-width: 170px !important;
+}
+
+/* Kolom Berlaku Untuk */
+body.promos-page table.dataTable th:nth-child(4),
+body.promos-page table.dataTable td:nth-child(4) {
+    width: 160px !important;
+    min-width: 160px !important;
+    max-width: 160px !important;
+    text-align: center !important;
+}
+
+/* Kolom Tipe */
+body.promos-page table.dataTable th:nth-child(5),
+body.promos-page table.dataTable td:nth-child(5) {
+    width: 120px !important;
+    min-width: 120px !important;
+    max-width: 120px !important;
+    text-align: center !important;
+}
+
+/* Kolom Diskon */
+body.promos-page table.dataTable th:nth-child(6),
+body.promos-page table.dataTable td:nth-child(6) {
+    width: 150px !important;
+    min-width: 150px !important;
+    max-width: 150px !important;
+}
+
+/* Kolom Min Belanja */
+body.promos-page table.dataTable th:nth-child(7),
+body.promos-page table.dataTable td:nth-child(7) {
+    width: 150px !important;
+    min-width: 150px !important;
+    max-width: 150px !important;
+}
+
+/* Kolom Limit */
+body.promos-page table.dataTable th:nth-child(8),
+body.promos-page table.dataTable td:nth-child(8) {
+    width: 120px !important;
+    min-width: 120px !important;
+    max-width: 120px !important;
+    text-align: center !important;
+}
+
+/* Kolom Periode */
+body.promos-page table.dataTable th:nth-child(9),
+body.promos-page table.dataTable td:nth-child(9) {
+    width: 190px !important;
+    min-width: 190px !important;
+    max-width: 190px !important;
+}
+
+/* Kolom Status */
+body.promos-page table.dataTable th:nth-child(10),
+body.promos-page table.dataTable td:nth-child(10) {
+    width: 120px !important;
+    min-width: 120px !important;
+    max-width: 120px !important;
+    text-align: center !important;
+}
+
+/* Kolom Aksi */
+body.promos-page table.dataTable th:nth-child(11),
+body.promos-page table.dataTable td:nth-child(11) {
+    width: 160px !important;
+    min-width: 160px !important;
+    max-width: 160px !important;
+    text-align: center !important;
+}
+
+/* Isi cell jangan dipotong per huruf */
+body.promos-page table.dataTable td,
+body.promos-page table.dataTable th {
+    word-break: normal !important;
+    overflow-wrap: normal !important;
+    white-space: nowrap !important;
+    vertical-align: middle !important;
+}
+
+/* Kolom promo boleh 2 baris, bukan turun per huruf */
+body.promos-page table.dataTable td:nth-child(1),
+body.promos-page .promo-main,
+body.promos-page .promo-main b,
+body.promos-page .promo-main small {
+    white-space: normal !important;
+    word-break: normal !important;
+    overflow-wrap: normal !important;
+}
+
+body.promos-page .promo-main {
+    width: 240px !important;
+    min-width: 240px !important;
+    max-width: 240px !important;
+    display: flex !important;
+    align-items: center !important;
+    gap: 12px !important;
+}
+
+body.promos-page .promo-main > div:last-child {
+    min-width: 0 !important;
+    flex: 1 1 auto !important;
+}
+
+body.promos-page .promo-main b {
+    display: block !important;
+    font-size: 13px !important;
+    line-height: 1.3 !important;
+    font-weight: 950 !important;
+}
+
+body.promos-page .promo-main small {
+    display: block !important;
+    font-size: 11px !important;
+    line-height: 1.3 !important;
+    color: #64748b !important;
+}
+
+/* Badge jangan bikin kolom pecah */
+body.promos-page .promo-badge {
+    max-width: 135px !important;
+    overflow: hidden !important;
+    text-overflow: ellipsis !important;
+    white-space: nowrap !important;
+}
+
+/* Aksi tetap sejajar */
+body.promos-page .promo-actions {
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    gap: 7px !important;
+    white-space: nowrap !important;
+}
+
+body.promos-page .promo-icon-btn {
+    width: 38px !important;
+    height: 38px !important;
+    min-width: 38px !important;
+    border-radius: 14px !important;
+}
+
+/* Header clone DataTables ikut lebar tabel */
+body.promos-page .dataTables_scrollHeadInner {
+    width: 1580px !important;
+    min-width: 1580px !important;
+}
+
+body.promos-page .dataTables_scrollHeadInner table {
+    width: 1580px !important;
+    min-width: 1580px !important;
+}
+
+/* Android: tetap scroll kanan-kiri, bukan dipaksa sempit */
+@media (max-width: 768px) {
+    body.promos-page .dataTables_scrollBody {
+        overflow-x: auto !important;
+        -webkit-overflow-scrolling: touch !important;
+    }
+
+    body.promos-page table.dataTable,
+    body.promos-page .dataTables_scrollHead table,
+    body.promos-page .dataTables_scrollBody table,
+    body.promos-page .promos-table {
+        width: 1580px !important;
+        min-width: 1580px !important;
+        max-width: none !important;
+    }
+}
+
+/* === 2026-08 long product names: final DataTables override === */
+table.product-table td.product-name-cell,
+table.stock-table td.stock-name-cell,
+.dataTables_wrapper table.product-table td.product-name-cell,
+.dataTables_wrapper table.stock-table td.stock-name-cell {
+    min-width: 320px !important;
+    max-width: 520px !important;
+    white-space: normal !important;
+}
+table.product-table td.product-name-cell b,
+table.stock-table td.stock-name-cell b {
+    white-space: normal !important;
+    overflow: visible !important;
+    text-overflow: clip !important;
+    overflow-wrap: anywhere !important;
+    word-break: normal !important;
+}
+@media (max-width:720px){
+    table.product-table td.product-name-cell,
+    table.stock-table td.stock-name-cell { min-width:270px !important; }
+}

@@ -1,0 +1,41 @@
+:root {
+    --primary: #dc2626;
+    --primary-dark: #991b1b;
+    --primary-soft: #fee2e2;
+    --secondary: #f97316;
+    --success: #16a34a;
+    --warning: #f59e0b;
+    --danger: #ef4444;
+    --dark: #111827;
+    --muted: #64748b;
+    --soft: #fff7f7;
+    --border: #f1dada;
+    --white: #ffffff;
+    --radius: 22px;
+    --shadow: 0 22px 55px rgba(127, 29, 29, 0.09);
+}
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body {
+    margin: 0;
+    font-family: Inter, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    background:
+        radial-gradient(circle at top left, rgba(220, 38, 38, .08), transparent 34%),
+        radial-gradient(circle at bottom right, rgba(249, 115, 22, .08), transparent 30%),
+        #fff7f7;
+    color: var(--dark);
+}
+a { text-decoration: none; }
+button,input,select,textarea { font-family: inherit; }
+.page-loader {
+    position: fixed; inset: 0; z-index: 99999;
+    background: rgba(255, 247, 247, .9); backdrop-filter: blur(18px);
+    display: flex; align-items: center; justify-content: center; transition: .35s ease;
+}
+.page-loader.hide { opacity: 0; visibility: hidden; }
+.loader-card { background: white; padding: 24px; border-radius: 26px; box-shadow: var(--shadow); display: flex; align-items: center; gap: 14px; border: 1px solid rgba(220,38,38,.10); }
+.loader-logo { width: 50px; height: 50px; border-radius: 18px; display: grid; place-items: center; background: linear-gradient(135deg, #ef4444, #991b1b); color: white; font-size: 24px; animation: pulseLogo 1.2s infinite; }
+.loader-text { font-weight: 900; color: var(--dark); }
+@keyframes pulseLogo { 0%,100%{transform:scale(1)} 50%{transform:scale(.92)} }
+.premium-toast { border-radius: 18px !important; box-shadow: 0 18px 45px rgba(127,29,29,.18) !important; padding: 12px 14px !important; border: 1px solid rgba(220,38,38,.10) !important; }
+.premium-alert { border-radius: 24px !important; }

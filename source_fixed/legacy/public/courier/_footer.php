@@ -1,0 +1,4 @@
+<?php if(marketplace_courier_session()): ?>
+<nav class="courier-bottom-nav"><a class="<?= $courierActive==='jobs'?'active':''; ?>" href="<?= legacy_base_url('kurir'); ?>"><i class="bi bi-box-seam"></i><span>Tugas</span></a><a class="<?= $courierActive==='done'?'active':''; ?>" href="<?= legacy_base_url('kurir/selesai'); ?>"><i class="bi bi-check2-circle"></i><span>Selesai</span></a><a class="<?= $courierActive==='profile'?'active':''; ?>" href="<?= legacy_base_url('kurir/profil'); ?>"><i class="bi bi-person-circle"></i><span>Profil</span></a></nav>
+<?php endif; ?>
+<script>document.querySelectorAll('.courier-toast').forEach(x=>setTimeout(()=>x.classList.add('hide'),4200));document.querySelectorAll('[data-confirm]').forEach(f=>f.addEventListener('submit',e=>{if(!confirm(f.dataset.confirm||'Lanjutkan?'))e.preventDefault()}));</script></body></html>

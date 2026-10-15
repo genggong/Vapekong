@@ -1,0 +1,473 @@
+/* =========================================================
+   DataTables Action Buttons + Status Badge Polish
+   Tampilan saja, tidak mengubah logic/data.
+   ========================================================= */
+
+/* ACTION BUTTONS DI TABEL */
+.premium-table td:last-child,
+.table td:last-child,
+.dataTable td:last-child {
+    vertical-align: middle !important;
+}
+
+.premium-table td:last-child .system-btn,
+.premium-table td:last-child .btn,
+.premium-table td:last-child .btn-premium,
+.premium-table td:last-child a,
+.table td:last-child .system-btn,
+.table td:last-child .btn,
+.table td:last-child .btn-premium,
+.table td:last-child a,
+.dataTable td:last-child .system-btn,
+.dataTable td:last-child .btn,
+.dataTable td:last-child .btn-premium,
+.dataTable td:last-child a {
+    margin: 2px !important;
+}
+
+.premium-table td:last-child,
+.table td:last-child,
+.dataTable td:last-child {
+    white-space: nowrap;
+}
+
+.table-actions,
+.action-buttons,
+.action-group,
+td .actions,
+td .btn-group {
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: flex-end !important;
+    gap: 6px !important;
+    flex-wrap: wrap !important;
+}
+
+.table-actions a,
+.table-actions button,
+.action-buttons a,
+.action-buttons button,
+.action-group a,
+.action-group button,
+td .actions a,
+td .actions button,
+td .btn-group a,
+td .btn-group button,
+.premium-table td:last-child a,
+.premium-table td:last-child button,
+.dataTable td:last-child a,
+.dataTable td:last-child button {
+    min-width: 38px !important;
+    min-height: 38px !important;
+    border-radius: 14px !important;
+    border: 1px solid #fee2e2 !important;
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    gap: 7px !important;
+    font-weight: 900 !important;
+    text-decoration: none !important;
+    line-height: 1 !important;
+    box-shadow: 0 8px 20px rgba(15, 23, 42, .06) !important;
+    transition: transform .16s ease, box-shadow .16s ease, filter .16s ease, background .16s ease !important;
+}
+
+.table-actions a:hover,
+.table-actions button:hover,
+.action-buttons a:hover,
+.action-buttons button:hover,
+.action-group a:hover,
+.action-group button:hover,
+td .actions a:hover,
+td .actions button:hover,
+td .btn-group a:hover,
+td .btn-group button:hover,
+.premium-table td:last-child a:hover,
+.premium-table td:last-child button:hover,
+.dataTable td:last-child a:hover,
+.dataTable td:last-child button:hover {
+    transform: translateY(-1px) scale(1.02) !important;
+    box-shadow: 0 12px 26px rgba(15, 23, 42, .12) !important;
+}
+
+/* Aksi default/detail/edit/print/delete */
+.premium-table td:last-child a[href*="detail"],
+.premium-table td:last-child a[href*="view"],
+.dataTable td:last-child a[href*="detail"],
+.dataTable td:last-child a[href*="view"] {
+    background: #eff6ff !important;
+    color: #1d4ed8 !important;
+    border-color: #bfdbfe !important;
+}
+
+.premium-table td:last-child a[href*="edit"],
+.dataTable td:last-child a[href*="edit"] {
+    background: #fefce8 !important;
+    color: #a16207 !important;
+    border-color: #fde68a !important;
+}
+
+.premium-table td:last-child a[href*="print"],
+.premium-table td:last-child a[target="_blank"],
+.dataTable td:last-child a[href*="print"],
+.dataTable td:last-child a[target="_blank"] {
+    background: #f0fdf4 !important;
+    color: #166534 !important;
+    border-color: #bbf7d0 !important;
+}
+
+.premium-table td:last-child a[href*="delete"],
+.premium-table td:last-child a[href*="destroy"],
+.premium-table td:last-child button[name*="delete"],
+.premium-table td:last-child button.btn-danger,
+.dataTable td:last-child a[href*="delete"],
+.dataTable td:last-child a[href*="destroy"],
+.dataTable td:last-child button[name*="delete"],
+.dataTable td:last-child button.btn-danger {
+    background: #fee2e2 !important;
+    color: #991b1b !important;
+    border-color: #fecaca !important;
+}
+
+.premium-table td:last-child .system-btn.primary,
+.premium-table td:last-child .btn-primary,
+.dataTable td:last-child .system-btn.primary,
+.dataTable td:last-child .btn-primary {
+    background: linear-gradient(135deg, #ef4444, #991b1b) !important;
+    color: #fff !important;
+    border-color: transparent !important;
+}
+
+.premium-table td:last-child .system-btn.soft,
+.premium-table td:last-child .btn-light,
+.dataTable td:last-child .system-btn.soft,
+.dataTable td:last-child .btn-light {
+    background: #fff1f2 !important;
+    color: #991b1b !important;
+    border-color: #fecaca !important;
+}
+
+/* STATUS BADGES UMUM */
+[class*="status"],
+.badge,
+.badge-soft,
+.debt-status,
+.sr-status,
+.bundle-status,
+.return-status,
+.payment-status,
+.stock-status,
+.shift-status,
+.member-status,
+.promo-status,
+.transaction-status,
+.opname-status {
+    --status-bg: #f1f5f9;
+    --status-color: #334155;
+    --status-border: #cbd5e1;
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    gap: 7px !important;
+    border-radius: 999px !important;
+    padding: 7px 12px !important;
+    min-height: 30px !important;
+    font-size: 12px !important;
+    font-weight: 950 !important;
+    letter-spacing: .02em !important;
+    line-height: 1 !important;
+    background: var(--status-bg) !important;
+    color: var(--status-color) !important;
+    border: 1px solid var(--status-border) !important;
+    box-shadow: 0 6px 18px rgba(15,23,42,.06) !important;
+    position: relative !important;
+    overflow: hidden !important;
+    white-space: nowrap !important;
+}
+
+[class*="status"]::before,
+.badge::before,
+.badge-soft::before,
+.debt-status::before,
+.sr-status::before,
+.bundle-status::before,
+.return-status::before,
+.payment-status::before,
+.stock-status::before,
+.shift-status::before,
+.member-status::before,
+.promo-status::before,
+.transaction-status::before,
+.opname-status::before {
+    content: "";
+    width: 8px;
+    height: 8px;
+    flex: 0 0 auto;
+    border-radius: 999px;
+    background: currentColor;
+    box-shadow: 0 0 0 4px color-mix(in srgb, currentColor 16%, transparent);
+}
+
+/* Animasi shimmer halus */
+[class*="status"]::after,
+.badge::after,
+.badge-soft::after,
+.debt-status::after,
+.sr-status::after,
+.bundle-status::after,
+.return-status::after,
+.payment-status::after,
+.stock-status::after,
+.shift-status::after,
+.member-status::after,
+.promo-status::after,
+.transaction-status::after,
+.opname-status::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    transform: translateX(-130%);
+    background: linear-gradient(90deg, transparent, rgba(255,255,255,.45), transparent);
+    animation: kpStatusShimmer 3.2s ease-in-out infinite;
+    pointer-events: none;
+}
+
+/* STATUS: sukses/lunas/aktif/selesai */
+.status-success,
+.status-paid,
+.status-completed,
+.status-complete,
+.status-active,
+.status-open,
+.status-approved,
+.status-settled,
+.status-selesai,
+.status-lunas,
+.status-aktif,
+.status-successful,
+.badge-success,
+.badge-paid,
+.debt-status.paid,
+.sr-status.completed,
+.bundle-status.active,
+.payment-status.paid,
+.transaction-status.paid,
+.opname-status.completed,
+.shift-status.open,
+[class*="status"][class*="success"],
+[class*="status"][class*="paid"],
+[class*="status"][class*="completed"],
+[class*="status"][class*="active"] {
+    --status-bg: #dcfce7;
+    --status-color: #166534;
+    --status-border: #86efac;
+}
+
+/* STATUS: pending/proses/partial/draft */
+.status-pending,
+.status-process,
+.status-processing,
+.status-partial,
+.status-draft,
+.status-waiting,
+.status-unpaid,
+.status-belum,
+.status-sebagian,
+.badge-warning,
+.badge-pending,
+.debt-status.partial,
+.debt-status.unpaid,
+.payment-status.pending,
+.transaction-status.pending,
+.opname-status.draft,
+[class*="status"][class*="pending"],
+[class*="status"][class*="partial"],
+[class*="status"][class*="draft"],
+[class*="status"][class*="unpaid"] {
+    --status-bg: #fef3c7;
+    --status-color: #92400e;
+    --status-border: #fcd34d;
+    animation: kpStatusPulse 2.2s ease-in-out infinite;
+}
+
+/* STATUS: gagal/batal/expired/overdue/tutup */
+.status-failed,
+.status-fail,
+.status-cancel,
+.status-cancelled,
+.status-canceled,
+.status-expired,
+.status-overdue,
+.status-closed,
+.status-inactive,
+.status-nonaktif,
+.status-batal,
+.status-gagal,
+.badge-danger,
+.badge-error,
+.badge-failed,
+.debt-status.overdue,
+.sr-status.failed,
+.sr-status.cancelled,
+.bundle-status.inactive,
+.payment-status.failed,
+.transaction-status.failed,
+.opname-status.cancelled,
+.shift-status.closed,
+[class*="status"][class*="failed"],
+[class*="status"][class*="cancel"],
+[class*="status"][class*="expired"],
+[class*="status"][class*="overdue"],
+[class*="status"][class*="inactive"] {
+    --status-bg: #fee2e2;
+    --status-color: #991b1b;
+    --status-border: #fecaca;
+}
+
+/* STATUS: info/qris/transfer/noncash */
+.status-info,
+.status-qris,
+.status-transfer,
+.status-noncash,
+.badge-info,
+.payment-status.qris,
+.payment-status.transfer,
+[class*="status"][class*="qris"],
+[class*="status"][class*="transfer"] {
+    --status-bg: #dbeafe;
+    --status-color: #1d4ed8;
+    --status-border: #93c5fd;
+}
+
+/* STATUS: cash/netral */
+.status-cash,
+.badge-secondary,
+.payment-status.cash,
+[class*="status"][class*="cash"] {
+    --status-bg: #f1f5f9;
+    --status-color: #334155;
+    --status-border: #cbd5e1;
+}
+
+/* Kalau badge/status berupa teks uppercase tanpa class spesifik, bantu berdasarkan class umum */
+.badge.bg-success,
+.badge.text-bg-success {
+    --status-bg: #dcfce7 !important;
+    --status-color: #166534 !important;
+    --status-border: #86efac !important;
+}
+.badge.bg-warning,
+.badge.text-bg-warning {
+    --status-bg: #fef3c7 !important;
+    --status-color: #92400e !important;
+    --status-border: #fcd34d !important;
+}
+.badge.bg-danger,
+.badge.text-bg-danger {
+    --status-bg: #fee2e2 !important;
+    --status-color: #991b1b !important;
+    --status-border: #fecaca !important;
+}
+.badge.bg-info,
+.badge.text-bg-info,
+.badge.bg-primary,
+.badge.text-bg-primary {
+    --status-bg: #dbeafe !important;
+    --status-color: #1d4ed8 !important;
+    --status-border: #93c5fd !important;
+}
+
+/* DataTables pagination polish */
+.dataTables_wrapper .dataTables_paginate .paginate_button,
+.dt-container .dt-paging-button {
+    border-radius: 14px !important;
+    padding: 8px 12px !important;
+    font-weight: 900 !important;
+    transition: transform .16s ease, box-shadow .16s ease !important;
+}
+.dataTables_wrapper .dataTables_paginate .paginate_button.current,
+.dt-container .dt-paging-button.current {
+    background: linear-gradient(135deg,#ef4444,#991b1b) !important;
+    color: #fff !important;
+    border-color: transparent !important;
+}
+
+/* Mobile table action */
+@media(max-width: 768px) {
+    .premium-table td:last-child,
+    .table td:last-child,
+    .dataTable td:last-child {
+        white-space: normal !important;
+    }
+
+    .table-actions,
+    .action-buttons,
+    .action-group,
+    td .actions,
+    td .btn-group {
+        justify-content: flex-start !important;
+    }
+
+    .premium-table td:last-child a,
+    .premium-table td:last-child button,
+    .dataTable td:last-child a,
+    .dataTable td:last-child button {
+        min-height: 42px !important;
+        padding: 10px 12px !important;
+    }
+
+    [class*="status"],
+    .badge,
+    .badge-soft,
+    .debt-status,
+    .sr-status,
+    .bundle-status,
+    .return-status,
+    .payment-status,
+    .stock-status,
+    .shift-status,
+    .member-status,
+    .promo-status,
+    .transaction-status,
+    .opname-status {
+        padding: 8px 12px !important;
+        font-size: 11px !important;
+    }
+}
+
+/* Animations */
+@keyframes kpStatusShimmer {
+    0%, 58% { transform: translateX(-130%); }
+    78%, 100% { transform: translateX(130%); }
+}
+@keyframes kpStatusPulse {
+    0%, 100% { box-shadow: 0 6px 18px rgba(15,23,42,.06); }
+    50% { box-shadow: 0 8px 24px color-mix(in srgb, var(--status-color) 20%, transparent); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    [class*="status"],
+    [class*="status"]::after,
+    .badge,
+    .badge::after,
+    .badge-soft,
+    .badge-soft::after {
+        animation: none !important;
+    }
+    .table-actions a,
+    .table-actions button,
+    .action-buttons a,
+    .action-buttons button,
+    .action-group a,
+    .action-group button,
+    td .actions a,
+    td .actions button,
+    td .btn-group a,
+    td .btn-group button,
+    .premium-table td:last-child a,
+    .premium-table td:last-child button,
+    .dataTable td:last-child a,
+    .dataTable td:last-child button {
+        transition: none !important;
+    }
+}

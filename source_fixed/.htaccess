@@ -1,0 +1,33 @@
+Options -Indexes
+DirectoryIndex index.php
+
+<IfModule mod_rewrite.c>
+    RewriteEngine On
+
+    # Deny any direct browser request into framework/private folders.
+    RewriteCond %{THE_REQUEST} \s/+legacy/ [NC]
+    RewriteRule ^legacy/ - [F,L]
+    RewriteRule ^(?:app|system|writable|public|docs|tools)(?:/|$) - [F,L,NC]
+    RewriteRule ^(?:spark|composer\.json|LICENSE_CI4)$ - [F,L,NC]
+
+    # Public assets stay at the original URLs, while the source lives inside
+    # legacy/public during the staged CI4 migration.
+    RewriteRule ^assets/(.*)$ legacy/public/assets/$1 [L]
+    RewriteRule ^uploads/(.*)$ legacy/public/uploads/$1 [L]
+
+    # Preserve Let's Encrypt/cPanel validation files when present.
+    RewriteRule ^\.well-known/ - [L]
+
+    # CI4 front controller for every non-file/non-directory request.
+    RewriteCond %{REQUEST_FILENAME} !-f
+    RewriteCond %{REQUEST_FILENAME} !-d
+    RewriteRule ^ index.php [L]
+</IfModule>
+
+<IfModule !mod_rewrite.c>
+    ErrorDocument 404 /index.php
+</IfModule>
+
+<FilesMatch "(^\.|\.sql$|\.log$|\.ini$|\.env$|composer\.(json|lock)$)">
+    Require all denied
+</FilesMatch>

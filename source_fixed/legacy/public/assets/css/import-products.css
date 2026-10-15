@@ -1,0 +1,59 @@
+/* =========================================================
+   IMPORT PRODUK CSV PREMIUM
+   ========================================================= */
+.import-wrap { padding-bottom: 135px; }
+.import-panel {
+    background:#fff; border:1px solid rgba(220,38,38,.12); border-radius:28px;
+    padding:22px; box-shadow:0 20px 60px rgba(127,29,29,.10); overflow:hidden; margin-top:18px;
+}
+.import-hero {
+    margin-top:18px; border-radius:30px; padding:26px; color:#fff;
+    background: radial-gradient(circle at bottom right, rgba(249,115,22,.42), transparent 28%), linear-gradient(135deg,#991b1b,#ef4444);
+    box-shadow:0 24px 70px rgba(127,29,29,.18); overflow:hidden; position:relative;
+}
+.import-hero-badge { display:inline-flex; align-items:center; gap:8px; padding:8px 12px; border-radius:999px; background:rgba(255,255,255,.16); border:1px solid rgba(255,255,255,.24); font-weight:950; margin-bottom:12px; }
+.import-hero h2 { margin:0; font-size:30px; line-height:1.2; font-weight:950; }
+.import-hero p { margin:10px 0 0; color:rgba(255,255,255,.86); font-weight:750; line-height:1.6; max-width:760px; }
+.import-grid { display:grid; grid-template-columns: 1.05fr .95fr; gap:18px; margin-top:18px; align-items:start; }
+.import-panel-head { display:flex; align-items:flex-start; justify-content:space-between; gap:14px; margin-bottom:18px; }
+.import-panel-head h3 { margin:0; color:#7f1d1d; font-size:22px; font-weight:950; line-height:1.2; }
+.import-panel-head p { margin:6px 0 0; color:#64748b; font-weight:750; line-height:1.45; }
+.import-btn { min-height:52px; border-radius:19px; padding:12px 18px; border:0; display:inline-flex; align-items:center; justify-content:center; gap:8px; font-weight:950; text-decoration:none; white-space:nowrap; cursor:pointer; }
+.import-btn.primary { background:linear-gradient(135deg,#ef4444,#991b1b); color:#fff; box-shadow:0 16px 34px rgba(220,38,38,.22); }
+.import-btn.soft { background:#fff5f5; color:#7f1d1d; border:1px solid #fecaca; }
+.import-btn.green { background:#dcfce7; color:#15803d; border:1px solid #bbf7d0; }
+.import-btn.danger { background:#fee2e2; color:#b91c1c; border:1px solid #fecaca; }
+.import-form { display:grid; gap:16px; }
+.import-field label { display:flex; align-items:center; gap:8px; color:#7f1d1d; font-size:14px; font-weight:950; margin:0 0 8px; }
+.import-field label::before { content:""; width:10px; height:10px; min-width:10px; border-radius:999px; background:#ef4444; box-shadow:0 0 0 6px rgba(239,68,68,.10); }
+.import-field input[type="file"], .import-field select { width:100%; min-height:56px; border:1px solid #fecaca; border-radius:19px; padding:12px 14px; background:#fff; color:#0f172a; font-weight:850; outline:none; box-shadow:0 12px 34px rgba(127,29,29,.045); }
+.import-field input[type="file"]::file-selector-button { border:0; border-radius:14px; padding:10px 14px; margin-right:12px; background:linear-gradient(135deg,#ef4444,#991b1b); color:#fff; font-weight:950; }
+.import-actions { display:flex; align-items:center; justify-content:flex-end; gap:10px; flex-wrap:wrap; padding:12px; border-radius:24px; background:#fff7f7; border:1px solid #fee2e2; }
+.import-note { padding:14px 16px; border-radius:20px; background:#fff7f7; border:1px solid #fee2e2; color:#64748b; font-weight:800; line-height:1.55; }
+.import-note b { color:#7f1d1d; }
+.import-steps { display:grid; gap:12px; }
+.import-step { display:flex; gap:12px; align-items:flex-start; padding:14px; border-radius:20px; background:#fff7f7; border:1px solid #fee2e2; }
+.import-step span { width:34px; height:34px; min-width:34px; border-radius:13px; display:grid; place-items:center; color:#fff; background:linear-gradient(135deg,#ef4444,#991b1b); font-weight:950; }
+.import-step b { display:block; color:#7f1d1d; font-weight:950; margin-bottom:3px; }
+.import-step p { margin:0; color:#64748b; font-size:13px; font-weight:750; line-height:1.45; }
+.import-summary { display:grid; grid-template-columns:repeat(4,1fr); gap:12px; margin:18px 0; }
+.import-summary-card { background:#fff; border:1px solid rgba(220,38,38,.11); border-radius:22px; padding:16px; box-shadow:0 14px 38px rgba(127,29,29,.07); }
+.import-summary-card span { display:block; color:#64748b; font-size:12px; font-weight:950; text-transform:uppercase; letter-spacing:.04em; }
+.import-summary-card h3 { margin:8px 0 0; color:#0f172a; font-size:24px; font-weight:950; }
+.import-table-wrap { width:100%; overflow-x:auto; -webkit-overflow-scrolling:touch; border-radius:22px; border:1px solid #fee2e2; background:#fff; }
+.import-table { width:100%; min-width:1120px; border-collapse:separate; border-spacing:0; margin:0; }
+.import-table th { background:linear-gradient(135deg,#991b1b,#ef4444); color:#fff; font-size:12px; text-transform:uppercase; letter-spacing:.04em; padding:14px; white-space:nowrap; }
+.import-table td { padding:13px 14px; border-bottom:1px solid #f1f5f9; color:#0f172a; vertical-align:middle; white-space:nowrap; font-size:13px; }
+.import-table tr:last-child td { border-bottom:0; }
+.import-table .cell-main b { display:block; color:#0f172a; font-weight:950; }
+.import-table .cell-main small { display:block; color:#64748b; font-weight:750; margin-top:3px; }
+.import-badge { display:inline-flex; align-items:center; justify-content:center; gap:5px; border-radius:999px; padding:7px 11px; font-size:12px; font-weight:950; white-space:nowrap; }
+.import-badge.green { background:#dcfce7; color:#15803d; }
+.import-badge.red { background:#fee2e2; color:#b91c1c; }
+.import-badge.orange { background:#ffedd5; color:#c2410c; }
+.import-badge.blue { background:#e0f2fe; color:#0369a1; }
+.import-error-list { margin:0; padding-left:18px; color:#b91c1c; font-weight:800; line-height:1.55; }
+.switch-box { display:flex; align-items:center; gap:10px; padding:13px 14px; border-radius:18px; background:#fff; border:1px solid #fecaca; color:#7f1d1d; font-weight:950; }
+.switch-box input { width:20px; height:20px; accent-color:#dc2626; }
+@media (max-width: 991px) { .import-grid { grid-template-columns:1fr; } .import-summary { grid-template-columns:repeat(2,1fr); } }
+@media (max-width: 768px) { .import-wrap { padding-bottom:150px; } .import-hero { border-radius:26px; padding:22px; } .import-hero h2 { font-size:24px; } .import-panel { border-radius:24px; padding:16px; } .import-panel-head { display:grid; grid-template-columns:1fr; } .import-actions { display:grid; grid-template-columns:1fr; } .import-btn { width:100%; } .import-summary { grid-template-columns:1fr; } .import-table { min-width:1040px; } }
